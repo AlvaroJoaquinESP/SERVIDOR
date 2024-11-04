@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi formulario usuario</title>
+  </head>
+  <body>
+    <h1>Mi formulario usuario</h1>
+    <form action="usuarioService.php" method="post">
+      <p>
+        <label for="">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required />
+      </p>
+
+      <p>
+        <label for="">Apellidos</label>
+        <input type="text" id="apellidos" name="apellidos" required />
+      </p>
+
+      <p>
+        <label for="">Edad</label>
+        <input type="text" id="Edad" name="edad" required />
+      </p>
+      <button>Enviar</button>
+      <br />
+    </form>
+  </body>
+</html>
