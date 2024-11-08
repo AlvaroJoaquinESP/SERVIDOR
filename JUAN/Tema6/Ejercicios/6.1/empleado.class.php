@@ -47,6 +47,16 @@ class Empleado {
         $this->sueldo = $sueldo;
         return $this;
     }
+
+    // Methods.
+
+    public function mostrar() {
+        if ($this->sueldo > 3000) {
+            echo "$this->nombre debe de pagar impuestos";
+        } else {
+            echo "$this->nombre NO debe de pagar impuestos";
+        }
+    }
 }
 
 
