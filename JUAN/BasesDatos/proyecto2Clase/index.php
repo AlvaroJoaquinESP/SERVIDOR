@@ -1,11 +1,11 @@
 <?php
 include_once "db.class.php";
 $db = new BaseDatos();
-$datos = $db->obtenerTodos();
+$datos = $db->obtenerTodos(); 
 
 // print_r($datos);
 ?>
-<h1>Listado de cursos</h1>
+<h1>Listadoo de cursos</h1>
 <h3>Codigo - Nombre - Detalle</h3>
 
 <?php
