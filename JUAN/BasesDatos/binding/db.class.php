@@ -29,9 +29,12 @@ function insertarContacto($telefono, $nombre, $email)
     
     /*$sql = $conexion->prepare("INSERT INTO contacto(telefono,nombre,email) VALUES (':telefono',':nombre',':email')");*/
     $sql = $conexion->prepare("INSERT INTO contacto(telefono,nombre,email) VALUES (?,?,?)");
-    $sql->bindValue(1,$telefono);
-    $sql->bindValue(2,$nombre);
-    $sql->bindValue(3,$email);
+    // $sql->bindValue(1,$telefono);
+    // $sql->bindValue(2,$nombre);
+    // $sql->bindValue(3,$email);
+    $sql->bindParam(1,$telefono);
+    $sql->bindParam(2,$nombre);
+    $sql->bindParam(3,$email);
     $sql->execute();
 }
 
