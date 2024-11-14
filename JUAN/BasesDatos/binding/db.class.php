@@ -46,8 +46,6 @@ function borrar_contacto($telefono)
     $sql->execute();
 }
 
-
-
 function obtener_datos_un_contacto($telefono)
 {
     $conexion = conectar();
