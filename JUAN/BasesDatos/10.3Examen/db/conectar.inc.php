@@ -1,5 +1,5 @@
 <?php
-function concectar () {
+function conectar () {
     try {
      
     $user = "root";

@@ -1,14 +1,14 @@
 <?php
-require_once "cabecera.php";
-require_once "db/libros.inc.php";
+require_once "../cabecera.php";
+require_once "../db/libros.inc.php";
 
 $libros = getLibros();
 
 ?>
 
 <h1>Gestión de libros</h1>
-CDU							
-<table>
+						
+<table width="50%" border="1">
     <thead>
         <th>CDU</th>
         <th>titulo</th>
@@ -24,6 +24,7 @@ CDU
     <tbody>
     <?php
     foreach($libros as $element) {
+        $CDU = $element['CDU'];
         echo "<tr>";
         
         echo "<td>";
@@ -69,3 +70,5 @@ CDU
 
     </tbody>
 </table>
+<hr>
+<a href="insertar_libro.php">Insertar libro</a>
