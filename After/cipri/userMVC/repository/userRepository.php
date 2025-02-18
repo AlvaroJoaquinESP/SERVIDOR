@@ -14,20 +14,6 @@ class UserRepository {
         $query->bindValue(2, $user->getPassword());
     }
 
-
-    
-
-
-
-
-
-
-
-
-
-
 }
-
-
 
 ?>
