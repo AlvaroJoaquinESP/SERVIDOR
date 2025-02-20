@@ -11,8 +11,10 @@ class UserController {
     // Validar los datos introducidos
 
     public function validate() {
-        (new UserRepository())->validateUser($user);
         $_POST['name'];
+        $_POST['password'];
+        (new UserRepository())->validateUser($user);
+        
     }
     //Min 27. carpeta vuew. index estructura cipri.
 }
