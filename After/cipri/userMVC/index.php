@@ -10,9 +10,13 @@ if(isset($_GET['action']) && isset($_GET['controller'])) {
     $controller = $_GET['controller'];
 } else {
     // Por defecto.
+    
     $action = 'login';
     $controller = 'userController';
 }
+
+$userController = new $controller();
+$userController->$action();
 
 // min 37.
 
