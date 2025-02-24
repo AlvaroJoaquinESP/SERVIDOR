@@ -16,7 +16,7 @@ class UserController {
         (new UserRepository())->validateUser($user);
         
     }
-    //Min 27. carpeta vuew. index estructura cipri.
+    //Min 27. carpeta view. index estructura cipri.
 }
 
 ?>

@@ -9,7 +9,8 @@
 
 <body>
 
-    <form action="" method="post">
+    <h2>Formulario Login</h2>
+    <form action="<?= BASE_URL ?>/user/login" method="post">
         <label for="name">Nombre:</label>
         <input type="text" name="name" id="name">
         <br>

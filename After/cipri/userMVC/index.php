@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php
+require_once("./controller/userController.php");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+/**
+ * $_GET['action'] y $_GET['controller'] son las variables de las rutas del htacces.
+ */
 
-<body>
-    <form action="<?BASE_URL?>/user/login" method="post">
-        <h2>Formulario Login</h2>
-        <label for="name">Nombre:</label>
-        <input type="text" name="name" id="name">
-        <br>
+if(isset($_GET['action']) && isset($_GET['controller'])) {
+    $action = $_GET['action'];
+    $controller = $_GET['controller'];
+} else {
+    // Por defecto.
+    $action = 'login';
+    $controller = 'userController';
+}
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-        <br>
-    </form>
-</body>
+// min 37.
 
-</html>
+
+
+
+
+
+?>
