@@ -1,7 +1,7 @@
 <?php
 
-require_once("../repository/userRepository.php");
-//  chatGPT: require_once(__DIR__ . "/../repository/userRepository.php");
+require_once("repository/userRepository.php");// doesn't work.
+//  chatGPT: require_once("/../repository/userRepository.php");
 class UserController {
     
     // Cargo el login
