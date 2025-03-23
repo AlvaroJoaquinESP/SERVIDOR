@@ -1,0 +1,3 @@
+- ¿Hay alguna forma global de meter bootstrap para todas las 		páginas? ¿Desde styles/global.css importandolo?
+- ¿Por qué mete el repository dentro de view?
+- Fichero config.php.
