@@ -10,12 +10,12 @@
 <body>
 
     <h2>Formulario Login</h2>
-    <form action="<?= BASE_URL ?>/user/login" method="post">
+    <form action="<?= BASE_URL ?>/user/validate" method="post">
         <label for="name">Nombre:</label>
         <input type="text" name="name" id="name">
         <br>
         <label for="password">Contaseña:</label>
-        <input type="text" name="password" id="password">
+        <input type="password" name="password" id="password">
         <br>
         <button>Entrar</button>
     </form>

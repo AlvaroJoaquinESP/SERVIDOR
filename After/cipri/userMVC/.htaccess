@@ -5,9 +5,9 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
 	
-    #RewriteRule ^libro/listar_libros$ index.php?action=listLibro [L]
-    RewriteRule ^user/login$ index.php?controller=userController&action=login [L]
-    RewriteRule ^user/login$ index.php?controller=userController&action=validate [L]
+    #RewriteRule ^libro/listar_libros$ index.php?action=listLibro [L] ¿mayuscula o minuscula? <- para userController de las sig. líneas. es el nombre del fichero o de la clase que contiene el fichero?
+    RewriteRule ^user/login$ index.php?controller=UserController&action=login [L]
+    RewriteRule ^user/login$ index.php?controller=UserController&action=validate [L]
     #Forma generica para las 4 opciones
     #RewriteRule ^([a-zA-Z]+)[/]?$ index.php?action=$1 [L]
 </IfModule>

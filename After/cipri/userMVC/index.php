@@ -1,6 +1,7 @@
 <?php
-require_once("./controller/userController.php");
-// require_once("./config/config.php"); correo cipri.
+session_start();
+require_once("controller/userController.php");
+require_once("config/config.php");
 
 /**
  * $_GET['action'] y $_GET['controller'] son las variables de las rutas del htacces.
@@ -8,18 +9,18 @@ require_once("./controller/userController.php");
 
 if(isset($_GET['action']) && isset($_GET['controller'])) {
     $action = $_GET['action'];
-    $controller = $_GET['controller'];
+    $controller = $_GET['controller']; // variable en .htaccess.
 } else {
-    // Por defecto.
+    // Por defecto, en la primera pantalla se cargaría el login. ----¿Esto es mi pantalla por defecto?----
     
     $action = 'login';
-    $controller = 'userController';
+    $controller = 'UserController';
 }
 
-$userController = new $controller();
-$userController->$action();
+// Lo puedo  usar así, ya que arriba le he asignado el valor UserController a $controller.  
 
-// min 37.
+$userController = new $controller(); 
+$userController->$action();
 
 
 

@@ -1,7 +1,7 @@
 <?php
 
-require_once("../model/user.php");
-require_once("../helper/util.php");
+require_once("model/user.php");
+require_once("helper/util.php");
 
 class UserRepository {
 
@@ -29,7 +29,7 @@ class UserRepository {
 
         // isset verifica que $result contenga algo(exista) y tenga un valor != null.
         if(isset($result)) {
-            $result = new User($result['id'],$result['name'],$result['password'],$result['role']);
+            $result = new User($result['id'],$result['name'],$result['pass'],$result['role']);
         }
         return $result;
     }
