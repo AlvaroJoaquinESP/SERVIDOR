@@ -38,10 +38,12 @@ class UserController
                 $_SESSION['role'] = $user->getRole();
                 $_SESSION['name'] = $user->getName();
                 $_SESSION['logged'] = true; // Creo una variable de sesion y la pongo a true.
+
+                /*Redireccionar a la pantalla por defecto. */
+                $url = BASE_URL . "/producto/lista";
+                header("Location:" . $url);
             }
-            /*Redireccionar a la pantalla por defecto. */
-            $url = BASE_URL;
-            header("Location" . $url);
+
         }
     }
 }

@@ -1,13 +1,33 @@
 <?php
+
+require_once("config/configDB.php");
 require_once("model/product.php");
-require_once("helper/util.php");
 
-class ProductRepository {
-    
-    
+class ProductRepository{
 
+    private function getPDO(){
+        return (new configDB())->getInstance();
+    }
+
+    public function getAllProducts(){
+        $query = $this->getPDO()->prepare("SELECT * FROM product");
+        $query->execute();
+        
+        $product = [];
+        while($p = $query->fetch(PDO::FETCH_ASSOC)){
+            $product[] = new Producto($p['cod'], 
+            $p['short_name'], $p['pvp'], $p['name']);
+        }
+        
+        return $product;
+    } 
+
+    public function addProduct($product){
+        $query = $this->getPDO()->prepare("INSERT INTO product(SHORT_NAME, PVP, NAME) VALUES (?,?,?)");
+        $query->bindValue(1, $product->getShort_name());
+        $query->bindValue(2, $product->getPvp());
+        $query->bindValue(3, $product->getName());
+        return $query->execute();
+    }
 }
-
-
-
 ?>

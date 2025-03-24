@@ -8,7 +8,7 @@ class UserRepository {
     /* Comprobar que los datos introducidos del usuario existen en BBDD. */
     public function validateUser($user) {
         
-        $query = Util::getConex()->prepare("SELECT * FROM USER WHERE NAME=? AND PASSWORD=?");
+        $query = Util::getConex()->prepare("SELECT * FROM USER WHERE NAME=? AND PASS=?");
 
         // Se colocan los valores de los ? de la consulta.
         // Rellena el primer ?
@@ -29,9 +29,13 @@ class UserRepository {
 
         // isset verifica que $result contenga algo(exista) y tenga un valor != null.
         if(isset($result)) {
-            $result = new User($result['id'],$result['name'],$result['pass'],$result['role']);
+            $result1 = new User($result['id'],$result['name'],$result['pass'],$result['role']);
         }
-        return $result;
+        else{
+            $result1 = null;
+        }
+        
+        return $result1;
     }
 
 }

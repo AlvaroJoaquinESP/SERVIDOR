@@ -7,7 +7,8 @@
 	
     #RewriteRule ^libro/listar_libros$ index.php?action=listLibro [L] ¿mayuscula o minuscula? <- para userController de las sig. líneas. es el nombre del fichero o de la clase que contiene el fichero?
     RewriteRule ^user/login$ index.php?controller=UserController&action=login [L]
-    RewriteRule ^user/login$ index.php?controller=UserController&action=validate [L]
+    RewriteRule ^user/validate$ index.php?controller=UserController&action=validate [L]
+    RewriteRule ^producto/lista$ index.php?controller=ProductController&action=listProduct [L]
     #Forma generica para las 4 opciones
     #RewriteRule ^([a-zA-Z]+)[/]?$ index.php?action=$1 [L]
 </IfModule>

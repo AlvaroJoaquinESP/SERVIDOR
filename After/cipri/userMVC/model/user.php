@@ -7,13 +7,12 @@ class User {
     private $role;
 
 
-    public function __contructor($id = 0, $name = '', $password = '', $role = '') {
+    public function __construct($id = 0, $name = '', $password = '', $role = '') {
         $this->id = $id;
         $this->name = $name;
         $this->password = $password;
         $this->role = $role;
     }
-
 
     /**
      * Get the value of id

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("controller/userController.php");
+require_once("controller/productController.php");
 require_once("config/config.php");
 
 /**
@@ -12,7 +13,6 @@ if(isset($_GET['action']) && isset($_GET['controller'])) {
     $controller = $_GET['controller']; // variable en .htaccess.
 } else {
     // Por defecto, en la primera pantalla se cargaría el login. ----¿Esto es mi pantalla por defecto?----
-    
     $action = 'login';
     $controller = 'UserController';
 }
