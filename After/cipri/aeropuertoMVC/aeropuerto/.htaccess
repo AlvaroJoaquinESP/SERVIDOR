@@ -5,6 +5,10 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
 	
+    RewriteRule ^user/validate$ index.php?controller=UserController&action=validate [L]
+    RewriteRule ^user/login$ index.php?controller=UserController&action=showLogin [L]
+
+
     #RewriteRule ^libro/listar_libros$ index.php?action=listLibro [L]
     #RewriteRule ^user/logout$ index.php?controller=UserController&action=logout [L]
     #Forma generica para las 4 opciones

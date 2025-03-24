@@ -2,3 +2,10 @@
 - ¿Por qué mete el repository dentro de view?
 - Fichero config.php.
 - Para que me sirve el util?.
+
+-- 
+
+- ?controller=¿nombreClase o nombreFichero?
+- ¿Cómo recibe el index los parámetros controller y action?
+- Repository --> Para interactuar con la BBDD.
+- ¿Patrón de diseño singleton?
