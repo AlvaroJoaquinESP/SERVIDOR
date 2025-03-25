@@ -9,3 +9,20 @@
 - ¿Cómo recibe el index los parámetros controller y action?
 - Repository --> Para interactuar con la BBDD.
 - ¿Patrón de diseño singleton?
+
+-- bindValue VS bindParam --
+ · bindValue -> binds a value to a parameter.
+ · bindParam -> binds a parameter to a  specified variable by reference.
+ Es decir, si cambio el valor de la variable, con param permite el cambio, pero con value seguirá metiendo el valor que le fue asignado en primer lugar.
+
+
+ ## Key Differences: ##
+· Binding Type:
+    - bindParam binds a variable by reference.
+    - bindValue binds a value directly.
+· Evaluation Time:
+    - bindParam evaluates the variable's value at the time of the execute call.
+    - bindValue evaluates the variable's value at the time of the bindValue call.
+· Use Cases:
+    - bindParam is useful for executing the same prepared statement multiple times with different values.
+    - bindValue is useful for binding a fixed value that should not change between executions.

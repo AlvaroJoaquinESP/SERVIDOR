@@ -10,30 +10,27 @@ class UserRepository {
     {
         $conex = (new ConfigDB())->getInstance();
 
-        $sql = "SELECT * FROM USER WHERE NAME = ? AND PASS=?";
+        // $sql = "SELECT count(*) FROM user WHERE name = ':name' AND pass = ':pass'";
+        $sql = "SELECT * FROM user WHERE name = ? AND pass = ?";
         $consulta = $conex->prepare($sql);
-        $consulta->bindValue(1, $name);
+        $consulta->bindParam(1, $name);
         // Codifico la contraseña, aquí o al pasarla por parámetro en userController.
-        $consulta->bindValue(2, md5($pass));
+        $consulta->bindParam(2, md5($pass));
         $consulta->execute();
         // Esto devuelve un array asociativo.
         $user = $consulta->fetch();
-
+   
+        return (!empty($user)) ? new User($user['id'],$user['name'],$user['pass'],$user['role']) : null;
+     
         /**
         * Para que no devuelva un array asociativo, hago que devuelva un objeto de tipo User.
         * ¿Tendría que meterlo en una variable mejor? ¿O lo que devuelvo es $user?
         * Si ha encontrado el usuario en BBDD lo devuelve.
         */
-        print_r($user);
-        if (isset($user)) {
-            
-            $user1 = new User($user['id'],$user['name'],$user['pass'],$user['role']);
-        } else {
-            $user1 = null;
-        }
+
+
 
         // ¿Si no lo encuentra null?
-        return $user1;
 
     }
 }
