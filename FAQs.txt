@@ -26,3 +26,13 @@
 · Use Cases:
     - bindParam is useful for executing the same prepared statement multiple times with different values.
     - bindValue is useful for binding a fixed value that should not change between executions.
+
+
+
+1º-> modelo.
+2º-> repository.
+3º-> añadir requires de model y bd en repository.
+4º-> consulta/s necesaria/s en el repository. -- Preguntar a cipri el while con fetch en la consulta. Lo comentó ayer 25/03 en clase -- 
+ -- ¿Cómo funciona exactamente el foreach?
+ 5º -> listado. si lo hay.
+ 6º -> controller.
