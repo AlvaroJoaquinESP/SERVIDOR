@@ -17,6 +17,9 @@ class AirportController{
         echo "Bienvenido " . "<b>". $_SESSION['name'] . "</b>" . ", seleccione una opción.";
         require_once("view/airportFooter.php");
     }
+
+
+    public function 
 }
 
 

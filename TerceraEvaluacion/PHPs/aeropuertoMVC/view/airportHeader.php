@@ -9,15 +9,15 @@
 </head>
 
 <body>
-
-<header class="header">
-    <h1 class="text text-center">🛫IBERIA🛫</h1>
-    <nav>
-        <ul>
-            <li><a href="<?= BASE_URL?>/airport/list">Listado</a></li>
-            <li><a href="<?= BASE_URL?>/airport/list">Insertar</a></li>
-            <li><a href="<?= BASE_URL?>/airport/list">Buscar por localización</a></li>
-        </ul>
-    </nav>
-</header>
-<hr>
+    <div class="container">
+        <header class="card-header">
+            <h1 class="text text-center">🛫IBERIA🛫</h1>
+            <nav class="nav">
+                <ul>
+                    <li class="nav-tiem"><a class="nav-link" href="<?= BASE_URL ?>/airport/list">Listado</a></li>
+                    <li class="nav-tiem"><a class="nav-link" href="<?= BASE_URL ?>/airport/list">Insertar</a></li>
+                    <li class="nav-tiem"><a class="nav-link" href="<?= BASE_URL ?>/airport/list">Buscar por localización</a></li>
+                </ul>
+            </nav>
+        </header>
+        <hr>
