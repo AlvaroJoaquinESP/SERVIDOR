@@ -36,3 +36,5 @@
  -- ¿Cómo funciona exactamente el foreach?
  5º -> listado. si lo hay.
  6º -> controller.
+ 7º-> una vez que se ha loggeado->varSesion logged = true.
+ -- Cuidado al redirigir desde el UserController.

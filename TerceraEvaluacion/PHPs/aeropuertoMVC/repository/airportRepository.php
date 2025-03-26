@@ -6,7 +6,7 @@ class AirportRepository
 
     public function getAll()
     {
-        $conex = (new ConfigDB()->getInstance());
+        $conex = (new ConfigDB())->getInstance();
 
         $sql = "SELECT * FROM airport";
         $consulta = $conex->prepare($sql);

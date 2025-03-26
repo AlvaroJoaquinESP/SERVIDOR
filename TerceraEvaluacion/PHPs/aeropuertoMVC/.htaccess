@@ -7,6 +7,9 @@
 	
     RewriteRule ^user/validate$ index.php?controller=UserController&action=validate [L]
     RewriteRule ^user/login$ index.php?controller=UserController&action=showLogin [L]
+    RewriteRule ^user/destroy$ index.php?controller=UserController&action=destroy [L]
+    RewriteRule ^airport/list$ index.php?controller=AirportController&action=showList [L]
+    RewriteRule ^airport/welcome$ index.php?controller=AirportController&action=welcome [L]
 
 
     #RewriteRule ^libro/listar_libros$ index.php?action=listLibro [L]
