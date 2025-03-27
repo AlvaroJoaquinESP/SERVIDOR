@@ -15,7 +15,8 @@
             <nav class="nav">
                 <ul>
                     <li class="nav-tiem"><a class="nav-link" href="<?= BASE_URL ?>/airport/list">Listado</a></li>
-                    <li class="nav-tiem"><a class="nav-link" href="<?= BASE_URL ?>/airport/list">Insertar</a></li>
+                    
+                    <li class='nav-tiem'><a class='nav-link' href='<?= BASE_URL ?>/airport/add'>Insertar</a></li>
                     <li class="nav-tiem"><a class="nav-link" href="<?= BASE_URL ?>/airport/list">Buscar por localización</a></li>
                 </ul>
             </nav>

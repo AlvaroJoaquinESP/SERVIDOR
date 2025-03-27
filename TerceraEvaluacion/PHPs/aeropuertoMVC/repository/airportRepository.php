@@ -28,7 +28,7 @@ class AirportRepository
         return $aeropuerto;
     }
 
-    public function addAirport($aeropuertoP)
+    public function addAirport($aeropuerto)
     {
 
         $sql = "INSERT INTO airport (location, numRoad, gateway) values (?,?,?)";
@@ -42,9 +42,9 @@ class AirportRepository
          */
         $query = $this->getPDO()->prepare($sql);
 
-        $query->bindValue(1, $aeropuertoP->getLocation());
-        $query->bindValue(2, $aeropuertoP->getNumRoad());
-        $query->bindValue(3, $aeropuertoP->getGateway());
+        $query->bindValue(1, $aeropuerto->getLocation());
+        $query->bindValue(2, $aeropuerto->getNumRoad());
+        $query->bindValue(3, $aeropuerto->getGateway());
 
         return $query->execute();
     }

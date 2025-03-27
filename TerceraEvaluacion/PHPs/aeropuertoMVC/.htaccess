@@ -10,6 +10,8 @@
     RewriteRule ^user/destroy$ index.php?controller=UserController&action=destroy [L]
     RewriteRule ^airport/list$ index.php?controller=AirportController&action=showList [L]
     RewriteRule ^airport/welcome$ index.php?controller=AirportController&action=welcome [L]
+    RewriteRule ^airport/add$ index.php?controller=AirportController&action=add [L]
+    RewriteRule ^airport/new$ index.php?controller=AirportController&action=insertAirport [L]
 
 
     #RewriteRule ^libro/listar_libros$ index.php?action=listLibro [L]

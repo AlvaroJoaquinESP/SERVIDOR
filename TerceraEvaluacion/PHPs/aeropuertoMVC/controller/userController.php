@@ -37,6 +37,8 @@ class UserController
 
    public function destroy()
    {
+      echo "<p class='alert alert-danger' role='alert'>El usuario <b>".$_SESSION['name'] .".</b> ha cerrado sesión.</p>"; // Esto NO se muestra...
+      sleep(1); // Esto sí que va. Sigue sin salir lo del alert.
       session_destroy();
       header("Location:" . BASE_URL . "/user/login");
    }
