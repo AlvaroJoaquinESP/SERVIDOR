@@ -12,13 +12,23 @@
     <div class="container">
         <header class="card-header">
             <h1 class="text text-center">🛫IBERIA🛫</h1>
-            <nav class="nav">
-                <ul>
-                    <li class="nav-tiem"><a class="nav-link" href="<?= BASE_URL ?>/airport/list">Listado</a></li>
-                    
-                    <li class='nav-tiem'><a class='nav-link' href='<?= BASE_URL ?>/airport/add'>Insertar</a></li>
-                    <li class="nav-tiem"><a class="nav-link" href="<?= BASE_URL ?>/airport/list">Buscar por localización</a></li>
-                </ul>
+            <nav class="nav flex-row justify-content-center">
+                <a class="nav-link" href="<?= BASE_URL ?>/airport/list">Listado</a>
+                <?php
+                if ($_SESSION['name'] == "admin") {
+                    echo "<a class='nav-link' href=" . BASE_URL . "/airport/add" . ">Insertar</a>";
+                }
+                ?>
+                <a class="nav-link" href="<?= BASE_URL ?>/airport/list">Buscar por localización</a>
             </nav>
         </header>
         <hr>
+
+        <?php
+        if (isset($message) && !empty($message)) {
+            echo "<p class='alert alert-primary' role='alert'>$message</p>";
+            $message = '';
+        }
+        // Entiendo lo que dice, pero solo para añadir, como lo haría con otros
+        // Supongo que de igual manera
+        ?>

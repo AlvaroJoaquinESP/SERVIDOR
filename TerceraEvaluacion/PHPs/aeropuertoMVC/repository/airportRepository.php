@@ -47,5 +47,19 @@ class AirportRepository
         $query->bindValue(3, $aeropuerto->getGateway());
 
         return $query->execute();
+        // return $query->execute()>0; Asi devuelve true o false en vez de 0 o 1. Válido para comprobaciones en el controller. if...
+    }
+
+
+    public function verify($location)
+    {
+        $sql = "SELECT count(location) from airport where lower(location) = lower(?)";
+        $query = $this->getPDO()->prepare($sql);
+
+        $query->bindValue(1, $location);
+        $query->execute();
+        // FetchColumn() ya que la consulta es COUNT.
+        return $query->fetchColumn()>0;
+
     }
 }

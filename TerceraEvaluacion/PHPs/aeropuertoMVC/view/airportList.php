@@ -20,7 +20,10 @@ require_once("view/airportHeader.php");
                     echo "<td>" . $valor->getLocation() . "</td>";
                     echo "<td>" . $valor->getNumRoad() . "</td>";
                     echo "<td>" . $valor->getGateway() . "</td>";
-                    echo "<td>" . "<button class='btn btn-danger' name='btn'>Eliminar</button>" . "</td>";
+                    if ($_SESSION['name'] == "admin") {
+                        echo "<td>" . "<a class='btn btn-danger' name='btn'>Eliminar</a>" . "</td>";
+
+                    }
                 echo "</tr>";
             }
             ?>
