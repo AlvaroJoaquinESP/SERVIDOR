@@ -52,3 +52,7 @@
         * La ruta en el formulario que llama al método del controller para hacer la consulta.
 
                     
+-- 
+¿Puedo controlar que si la lista está vacía, mostrar un mensaje con "Ups, no hay aeropuertos disponibles"? O algo por el estilo.
+
+En insertAirport, el mensaje del else se muestra arriba, no se muestra como $message.

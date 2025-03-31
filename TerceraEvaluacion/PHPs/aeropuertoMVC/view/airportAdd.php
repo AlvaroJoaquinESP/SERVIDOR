@@ -5,7 +5,7 @@
     <h1>Formulario de inserción</h1>
     <form action="<?= BASE_URL ?>/airport/new" method="post" class="form">
         <label for="location" class="form-label">Location</label>
-        <input type="text" name="location" id="location" class="form-control" required>
+        <input type="text" name="location" id="location" class="form-control" required maxlength="255">
         <br>
         <label for="numRoad" class="form-label">NumRoad</label>
         <input type="number" name="numRoad" id="numRoad" class="form-control" required>

@@ -85,4 +85,14 @@ class AirportRepository
 
         return $aeropuerto;
     }
+
+    public function findById($id)
+    {
+        $query = $this->getPDO()->prepare("SELECT * FROM airport WHERE id=?");
+        $query->bindValue(1, $id);
+        $query->execute();
+        $aeropuerto = $query->fetch();
+
+        return (!empty($aeropuerto)) ? new Airport($aeropuerto['ID'],$aeropuerto['location'],$aeropuerto['numRoad'],$aeropuerto['gateway']) : null;
+    }
 }

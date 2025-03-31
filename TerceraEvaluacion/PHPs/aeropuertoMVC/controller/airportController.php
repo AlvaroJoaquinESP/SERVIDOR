@@ -38,7 +38,7 @@ class AirportController
     {
 
         if (!($this->airportRepository->verify($_POST['location']))) {
-            
+
             $aeropuerto = (new Airport())->setLocation($_POST['location'])->setNumRoad($_POST['numRoad'])->setGateway($_POST['gateway']);
 
             $result = ($this->airportRepository)->addAirport($aeropuerto);
@@ -47,7 +47,7 @@ class AirportController
             $message = "";
             if ($result) {
                 $_SESSION['message'] = $message;
-                $message = "Insertado correctamente el aeropuerto " . $_POST['location'];
+                $message = "Insertado correctamente el aeropuerto: <b>" . $_POST['location'] . "</b>";
             } else {
                 $message = "Error al insertar";
             }
@@ -58,33 +58,31 @@ class AirportController
             // require_once("view/airportAdd.php");   Si aquí pongo airportList.php, no me sale nada.
             (new AirportController())->showList();
             require_once("view/airportFooter.php");
-        
-
         } else {
 
             echo "El aeropuerto " . $_POST['location'] . " ya existe";
             $this->showList();
-
-        } 
-        
+        }
     }
 
     public function deleteAirport($id)
     {
+        // Para sacar el nombre del aeropuerto y poder mostrar un PopUp, diciendo si está seguro de eliminar ese aeropuerto.(SEGURIDAD).
+        $aeropuerto = $this->airportRepository->findById($id);
         // Lógica del controller.
         $result = $this->airportRepository->delete($id);
 
         $message = "";
         if ($result) {
-            $message = "Borrado correctamente.";
+            $message = "Borrado correctamente el aeropuerto: <b>" . $aeropuerto->getLocation() . "</b>";
         } else {
-            $message = "Error al borrar.";
+            $message = "Error al borrar el aeropuerto: <b>" . $aeropuerto->getLocation() . "</b>";
         }
 
         // Muestro la vista.
         require_once("view/airportHeader.php");
         (new AirportController())->showList();
-        require_once("view/airportFooter.php");        
+        require_once("view/airportFooter.php");
     }
 
     public function searchAirport($location)
@@ -92,11 +90,10 @@ class AirportController
         $result = $this->airportRepository->search($location);
 
         $message = "";
-        if ($message) {
-            $message = "Se ha encontrado el aeropuerto"
+        if ($result) {
+            $message = "Se ha encontrado el aeropuerto";
         } else {
-            # code...
+            $message = "NO se ha encontrado el aeropuerto";
         }
-        
     }
 }

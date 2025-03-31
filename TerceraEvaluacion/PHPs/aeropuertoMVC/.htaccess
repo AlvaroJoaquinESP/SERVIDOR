@@ -12,7 +12,7 @@
     RewriteRule ^airport/welcome$ index.php?controller=AirportController&action=welcome [L]
     RewriteRule ^airport/add$ index.php?controller=AirportController&action=add [L]
     RewriteRule ^airport/new$ index.php?controller=AirportController&action=insertAirport [L]
-    RewriteRule ^airport/search$ index.php?controller=AirportController&action=searchAirport [L]
+    RewriteRule ^airport/search/([a-zA-Z]+)$ index.php?controller=AirportController&action=searchAirport [L]
     RewriteRule ^airport/delete/([0-9]+)$ index.php?controller=AirportController&action=deleteAirport&id=$1 [L]
 
 

@@ -19,7 +19,7 @@
                     echo "<a class='nav-link' href=" . BASE_URL . "/airport/add" . ">Insertar</a>";
                 }
                 ?>
-                <a class="nav-link" href="<?= BASE_URL ?>/airport/search">Buscar por localización</a>
+                <a class="nav-link" href="<?=BASE_URL?>/airport/search/">Buscar por localización</a>
             </nav>
         </header>
         <hr>
@@ -27,6 +27,7 @@
         <?php
         if (isset($message) && !empty($message)) {
             echo "<p class='alert alert-primary' role='alert'>$message</p>";
+            // Limpio el mensaje.
             $message = '';
         }
         // Entiendo lo que dice, pero solo para añadir, como lo haría con otros
