@@ -69,10 +69,34 @@ class AirportController
         
     }
 
-    public function deleteAirport()
+    public function deleteAirport($id)
     {
-        // Como meto formulario con el metodo post? o lo recojo con $_request?
-        $value = $_POST['btn'];
-        echo $value;
+        // Lógica del controller.
+        $result = $this->airportRepository->delete($id);
+
+        $message = "";
+        if ($result) {
+            $message = "Borrado correctamente.";
+        } else {
+            $message = "Error al borrar.";
+        }
+
+        // Muestro la vista.
+        require_once("view/airportHeader.php");
+        (new AirportController())->showList();
+        require_once("view/airportFooter.php");        
+    }
+
+    public function searchAirport($location)
+    {
+        $result = $this->airportRepository->search($location);
+
+        $message = "";
+        if ($message) {
+            $message = "Se ha encontrado el aeropuerto"
+        } else {
+            # code...
+        }
+        
     }
 }

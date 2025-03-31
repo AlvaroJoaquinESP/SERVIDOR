@@ -19,11 +19,11 @@ require_once("view/airportHeader.php");
                     echo "<td>" . $valor->getId() . "</td>";
                     echo "<td>" . $valor->getLocation() . "</td>";
                     echo "<td>" . $valor->getNumRoad() . "</td>";
-                    echo "<td>" . $valor->getGateway() . "</td>";
-                    if ($_SESSION['name'] == "admin") {
-                        echo "<td>" . "<a class='btn btn-danger' name='btn'>Eliminar</a>" . "</td>";
-
-                    }
+                    echo "<td>" . $valor->getGateway() . "</td>"; 
+                    ?>
+                  <?php  if ($_SESSION['name'] == "admin") {?>
+                        <td><a class='btn btn-danger' href="<?=BASE_URL?>/airport/delete/<?=$valor->getId()?>">Eliminar</a></td>
+                <?php   }
                 echo "</tr>";
             }
             ?>

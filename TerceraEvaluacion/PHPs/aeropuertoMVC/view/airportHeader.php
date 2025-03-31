@@ -19,7 +19,7 @@
                     echo "<a class='nav-link' href=" . BASE_URL . "/airport/add" . ">Insertar</a>";
                 }
                 ?>
-                <a class="nav-link" href="<?= BASE_URL ?>/airport/list">Buscar por localización</a>
+                <a class="nav-link" href="<?= BASE_URL ?>/airport/search">Buscar por localización</a>
             </nav>
         </header>
         <hr>

@@ -62,4 +62,27 @@ class AirportRepository
         return $query->fetchColumn()>0;
 
     }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM airport WHERE id=?";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $id);
+        return $query->execute();
+    }
+
+    public function search($location)
+    {
+        $query = $this->getPDO()->prepare("SELECT location FROM airport where location=?");
+        $query->bindValue(1, $location);
+        $query->execute();
+        $listado = $query->fetchAll();
+        $aeropuerto = [];
+
+        foreach ($listado as $valor) {
+            $aeropuerto[] = new Airport($valor["id"],$valor["location"],$valor["numRoad"],$valor["gateway"]);
+        }
+
+        return $aeropuerto;
+    }
 }
