@@ -19,7 +19,25 @@
                     echo "<a class='nav-link' href=" . BASE_URL . "/airport/add" . ">Insertar</a>";
                 }
                 ?>
+               
                 <a class="nav-link" href="<?=BASE_URL?>/airport/search/">Buscar por localización</a>
+                <!-- <?php
+                // if (isset($_REQUEST['showSearch']) && $_REQUEST['showSearch'] == 1) {
+                //     echo "<form action=" . BASE_URL . "/airport/search/>"  method='get'>
+                //     </form>" . ?>";
+                } -->
+  <a class="nav-link" href="<?=BASE_URL?>?showSearch=1">Buscar por localización</a>
+        
+        <?php
+//         // Mostrar el formulario de búsqueda si se ha hecho clic en el enlace
+//         if (isset($_GET['showSearch']) && $_GET['showSearch'] == 1) {
+//             echo '<form action="' . BASE_URL . '/airport/search/" method="GET" class="d-flex align-items-center ms-2">
+//                 <input type="text" name="location" class="form-control form-control-sm" placeholder="Introduzca localización">
+//                 <button type="submit" class="btn btn-sm btn-primary ms-1">Buscar</button>
+//             </form>';
+//         }
+                ?>
+                
             </nav>
         </header>
         <hr>
