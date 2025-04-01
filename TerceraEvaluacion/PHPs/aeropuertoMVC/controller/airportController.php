@@ -36,7 +36,7 @@ class AirportController
     // Inserto en BBDD y hago las operaciones en BD.
     public function insertAirport()
     {
-
+        $message = "";
         if (!($this->airportRepository->verify($_POST['location']))) {
 
             $aeropuerto = (new Airport())->setLocation($_POST['location'])->setNumRoad($_POST['numRoad'])->setGateway($_POST['gateway']);
@@ -44,7 +44,7 @@ class AirportController
             $result = ($this->airportRepository)->addAirport($aeropuerto);
 
 
-            $message = "";
+            
             if ($result) {
                 $_SESSION['message'] = $message;
                 $message = "Insertado correctamente el aeropuerto: <b>" . $_POST['location'] . "</b>";
@@ -59,8 +59,8 @@ class AirportController
             (new AirportController())->showList();
             require_once("view/airportFooter.php");
         } else {
-
-            echo "El aeropuerto " . $_POST['location'] . " ya existe";
+            $message = 'No se ha podido insertar el aeropuerto <b>' . $_REQUEST['location'] . '.</b>';
+            require_once("view/airportHeader.php");
             $this->showList();
         }
     }
@@ -89,16 +89,17 @@ class AirportController
     {
 
         require_once("view/airportHeader.php");
-
         require_once("view/airportSearch.php");
+
         if (isset($_REQUEST["location"])) {
             // Se llama igual que el array que recorro en airportList.
             $aeropuerto = $this->airportRepository->findByLocation($_REQUEST['location']);
+            if (empty($aeropuerto)) {
+                echo "<p class='alert alert-danger' role='alert'>No existe el aeropuerto <b>" . $_REQUEST['location'] .".</b></p>";
+            }
             require_once("view/airportList.php");
             require_once("view/airportFooter.php");
-        } else {
-            
-        }
+        }  
 
     }
 }

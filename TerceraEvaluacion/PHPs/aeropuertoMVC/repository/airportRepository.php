@@ -53,7 +53,7 @@ class AirportRepository
 
     public function verify($location)
     {
-        $sql = "SELECT count(location) from airport where lower(location) = lower(?)";
+        $sql = "SELECT count(location) from airport where lower(location)  = lower(?)"; // ...where lower(location)  = lower(?);where lower(location) like lower(%?%)
         $query = $this->getPDO()->prepare($sql);
 
         $query->bindValue(1, $location);
@@ -74,7 +74,7 @@ class AirportRepository
     public function findByLocation($location)
     {
 
-        $query = $this->getPDO()->prepare("SELECT * FROM airport where location=?");
+        $query = $this->getPDO()->prepare("SELECT * FROM airport where lower(location)=lower(?)");
         $query->bindValue(1, $location);
         $query->execute();
         $listado = $query->fetchAll();
