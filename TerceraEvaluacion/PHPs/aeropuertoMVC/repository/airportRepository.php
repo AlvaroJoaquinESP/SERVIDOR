@@ -71,9 +71,10 @@ class AirportRepository
         return $query->execute();
     }
 
-    public function search($location)
+    public function findByLocation($location)
     {
-        $query = $this->getPDO()->prepare("SELECT location FROM airport where location=?");
+
+        $query = $this->getPDO()->prepare("SELECT * FROM airport where location=?");
         $query->bindValue(1, $location);
         $query->execute();
         $listado = $query->fetchAll();

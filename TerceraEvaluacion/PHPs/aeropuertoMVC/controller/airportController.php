@@ -85,15 +85,20 @@ class AirportController
         require_once("view/airportFooter.php");
     }
 
-    public function searchAirport($location)
+    public function searchAirport()
     {
-        $result = $this->airportRepository->search($location);
 
-        $message = "";
-        if ($result) {
-            $message = "Se ha encontrado el aeropuerto";
+        require_once("view/airportHeader.php");
+
+        require_once("view/airportSearch.php");
+        if (isset($_REQUEST["location"])) {
+            // Se llama igual que el array que recorro en airportList.
+            $aeropuerto = $this->airportRepository->findByLocation($_REQUEST['location']);
+            require_once("view/airportList.php");
+            require_once("view/airportFooter.php");
         } else {
-            $message = "NO se ha encontrado el aeropuerto";
+            
         }
+
     }
 }
