@@ -7,7 +7,7 @@ require_once("controller/airportController.php");
 function execute($controller, $action){
     $controller = new $controller();
     //Se valida si se quiere eliminar un articulo, para poder recuperar el id que se envia por GET.
-    if(isset($_REQUEST["action"]) && $_REQUEST["action"]=="deleteAirport"){
+    if(isset($_REQUEST["action"]) && ($_REQUEST["action"]=="deleteAirport" || $_REQUEST['action'] == "editController")){
         $method = $_REQUEST["action"];
         $controller->$method(($_REQUEST["id"]));
     }else{

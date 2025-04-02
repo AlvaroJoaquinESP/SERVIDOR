@@ -23,6 +23,7 @@ require_once("view/airportHeader.php");
                     ?>
                   <?php  if ($_SESSION['name'] == "admin") {?>
                         <td><a class='btn btn-danger' href="<?=BASE_URL?>/airport/delete/<?=$valor->getId()?>">Eliminar</a></td>
+                        <td><a class='btn btn-success' href="<?=BASE_URL?>/airport/edit/<?=$valor->getId()?>">Editar</a></td>
                 <?php   }
                 echo "</tr>";
             }

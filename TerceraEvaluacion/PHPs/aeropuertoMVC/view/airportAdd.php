@@ -11,7 +11,7 @@
         <input type="number" name="numRoad" id="numRoad" class="form-control" required>
         <br>
         <label for="gateway" class="form-label">Gateway</label>
-        <input type="number" name="gateway" id="gateway" class="form-control" re>
+        <input type="number" name="gateway" id="gateway" class="form-control" required>
         <br>
         <button class="btn btn-primary">Añadir</button>
     </form>

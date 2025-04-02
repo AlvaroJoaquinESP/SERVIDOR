@@ -14,6 +14,8 @@
     RewriteRule ^airport/new$ index.php?controller=AirportController&action=insertAirport [L]
     RewriteRule ^airport/search$ index.php?controller=AirportController&action=searchAirport [L]
     RewriteRule ^airport/delete/([0-9]+)$ index.php?controller=AirportController&action=deleteAirport&id=$1 [L]
+    RewriteRule ^airport/edit/([0-9]+)$ index.php?controller=AirportController&action=editController&id=$1 [L]
+    RewriteRule ^airport/editAirport$ index.php?controller=AirportController&action=editAirport [L]
 
 
     #RewriteRule ^libro/listar_libros$ index.php?action=listLibro [L]
