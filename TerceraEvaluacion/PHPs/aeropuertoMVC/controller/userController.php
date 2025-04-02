@@ -3,16 +3,6 @@ require_once("repository/userRepository.php");
 class UserController
 {
 
-   public function showLogin()
-   {
-      if (!isset($_SESSION['logged'])) {
-         require_once("view/login.php");
-      }else {
-         (new AirportController())->showList();
-      }
-      
-   }
-
    /**
     * Llamar a BBDD 
     */
@@ -34,6 +24,16 @@ class UserController
          echo "Usuario NO loggeado";
       }
    }
+
+   public function showLogin()
+   {
+      if (!isset($_SESSION['logged'])) {
+         require_once("view/login.php");
+      }else {
+         (new AirportController())->showList();
+      }
+   }
+
 
    public function destroy()
    {

@@ -7,6 +7,8 @@
 	
     #RewriteRule ^libro/listar_libros$ index.php?action=listLibro [L]
     #RewriteRule ^user/logout$ index.php?controller=UserController&action=logout [L]
+    RewriteRule ^user/validate$ index.php?controller=UserController&action=validateUser [L]
+    RewriteRule ^user/login$ index.php?controller=UserController&action=showLogin [L]
     #Forma generica para las 4 opciones
     #RewriteRule ^([a-zA-Z]+)[/]?$ index.php?action=$1 [L]
 </IfModule>
