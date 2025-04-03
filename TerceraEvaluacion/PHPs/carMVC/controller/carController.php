@@ -1,7 +1,8 @@
 <?php
 require_once("repository/carRepository.php");
 
-class CarController {
+class CarController
+{
 
     private $carRepository;
 
@@ -16,8 +17,8 @@ class CarController {
         require_once("view/carHeader.php");
         echo "<p>¡Bienvenido <b>" . $_SESSION['name'] . ".!</b></p>";
         require_once("view/carFooter.php");
-        
     }
+
 
     public function showCarList()
     {
@@ -39,12 +40,20 @@ class CarController {
 
     public function addCar()
     {
-        $car = new Car()->setModel($_REQUEST['model'])->setBrand($_REQUEST['brand'])->setYear($_REQUEST['year'])->setStock($_REQUEST['stock']); 
-        $this->carRepository->insert($car);
+       /**
+        * Lógica
+        */
+        $car = (new Car())->setModel($_REQUEST['model'])->setBrand($_REQUEST['brand'])->setYear($_REQUEST['year'])->setStock($_REQUEST['stock']);
+        
+        $result = $this->carRepository->insert($car);
+        /**
+         * Vista
+         */
+
+         require_once("view/carHeader.php");
+        //  require_once("view/carList.php"); ASÍ NO, YA QUE SALE VACÍO...
+        (new CarController())->showCarList();
+         require_once("view/carFooter.php");
 
     }
-
 }
-
-
-?>

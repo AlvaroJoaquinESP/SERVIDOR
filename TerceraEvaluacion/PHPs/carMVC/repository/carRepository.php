@@ -19,7 +19,7 @@ class CarRepository {
         $car = [];
 
         foreach ($list as $valor) {
-            $car[] =  new Car($valor['ID'], $valor['MODEL'], $valor['BRAND'], $valor['YEAR'], $valor['STOCK']);
+            $car[] =  new Car($valor[0], $valor[1], $valor[2], $valor[3], $valor[4]);
         }
         
         return $car;
@@ -28,7 +28,7 @@ class CarRepository {
     
     public function insert($car)
     {
-        $sql = "INSERT INTO car (model, brand, year, stock) VALUES=(?,?,?,?)";
+        $sql = "INSERT INTO car (model, brand, year, stock) VALUES (?,?,?,?)";
         $query = $this->getPDO()->prepare($sql);
         $query->bindValue(1, $car->getModel());
         $query->bindValue(2, $car->getBrand());

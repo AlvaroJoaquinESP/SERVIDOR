@@ -20,7 +20,7 @@ class UserController
             $_SESSION['role'] = $user->getRole();
             header("Location: " . BASE_URL . "/car/welcome");
         } else {
-            require_once("view/carHeader.php");
+            require_once("view/login.php");
             echo "<p class='alert alert-warning'>Usuario NO loggeado</p>";
         }
     }
