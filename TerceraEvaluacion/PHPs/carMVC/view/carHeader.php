@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>· FlexiCar ·</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/bootstrap.css">
 </head>
+
 <body>
-    
-</body>
-</html>
+    <div class="container mt-3">
+        <header>
+            <h1 class="text text-center">🏎️🚗FLEXICAR🚗🏎️</h1>
+            <br>
+            <nav class="nav justify-content-center">
+                <ul class="btn-toolbar">
+                    <a class="nav-link" href="<?=BASE_URL?>/car/list">Nuestros Coches</a> <!-- Listar -->
+                    <a class="nav-link" href="<?=BASE_URL?>/car/add">Compramos tu Coche</a><!-- Insertar -->
+                </ul>
+            </nav>
+        </header>
+        <hr>

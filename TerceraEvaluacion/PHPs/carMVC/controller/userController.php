@@ -1,6 +1,7 @@
 <?php
 require_once("repository/userRepository.php");
-class UserController {
+class UserController
+{
 
     private $userRepository;
 
@@ -14,21 +15,28 @@ class UserController {
         $user = $this->userRepository->validate($_REQUEST['name'], $_REQUEST['password']);
 
         if (isset($user)) {
+            $_SESSION['logged'] = true; // Para cerrar sesión.
             $_SESSION['name'] = $user->getName();
             $_SESSION['role'] = $user->getRole();
-            header("Location: " . BASE_URL . "/airport/welcome");
+            header("Location: " . BASE_URL . "/car/welcome");
         } else {
-            echo "Usuario NO loggeado";
+            require_once("view/carHeader.php");
+            echo "<p class='alert alert-warning'>Usuario NO loggeado</p>";
         }
     }
+
 
     public function showLogin()
     {
         if (!isset($_SESSION['name'])) {
             require_once("view/login.php");
-        } 
+        }
+    }
+
+
+    public function destroy()
+    {
+        session_destroy();
+        header("Location: " . BASE_URL . "/user/login");
     }
 }
-
-
-?>

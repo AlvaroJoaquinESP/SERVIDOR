@@ -9,6 +9,11 @@
     #RewriteRule ^user/logout$ index.php?controller=UserController&action=logout [L]
     RewriteRule ^user/validate$ index.php?controller=UserController&action=validateUser [L]
     RewriteRule ^user/login$ index.php?controller=UserController&action=showLogin [L]
+    RewriteRule ^user/destroy$ index.php?controller=UserController&action=destroy [L]
+    RewriteRule ^car/welcome$ index.php?controller=CarController&action=welcomeCar [L]
+    RewriteRule ^car/list$ index.php?controller=CarController&action=showCarList [L]
+    RewriteRule ^car/add$ index.php?controller=CarController&action=addForm [L]
+    RewriteRule ^car/addCar$ index.php?controller=CarController&action=addCar [L]
     #Forma generica para las 4 opciones
     #RewriteRule ^([a-zA-Z]+)[/]?$ index.php?action=$1 [L]
 </IfModule>

@@ -11,11 +11,11 @@ if (isset($_REQUEST['action']) && isset($_REQUEST['controller'])) {
     $controller = $_REQUEST['controller'];
     $action = $_REQUEST['action'];
 } else {
+    // Este es mi /user/showLogin.(De alguna manera...).
     $controller = "UserController";
     $action = "showLogin";
 }
 // Creo una clase del controller que reciba.
-$controller = new $controller();
+(new $controller())->$action();
 // Ejecuto la acción que reciba del controller.
-$controller->$action();
 ?>

@@ -9,6 +9,33 @@ class CarRepository {
     {
         return (new ConfigDB())->getInstance();
     }
+
+    public function getAll()
+    {
+        $sql = "SELECT * FROM car";
+        $query = $this->getPDO()->prepare($sql);
+        $query->execute();
+        $list = $query->fetchAll();
+        $car = [];
+
+        foreach ($list as $valor) {
+            $car[] =  new Car($valor['ID'], $valor['MODEL'], $valor['BRAND'], $valor['YEAR'], $valor['STOCK']);
+        }
+        
+        return $car;
+    }
+
+    
+    public function insert($car)
+    {
+        $sql = "INSERT INTO car (model, brand, year, stock) VALUES=(?,?,?,?)";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $car->getModel());
+        $query->bindValue(2, $car->getBrand());
+        $query->bindValue(3, $car->getYear());
+        $query->bindValue(4, $car->getStock());
+        return $query->execute();
+    }
 }
 
 ?>

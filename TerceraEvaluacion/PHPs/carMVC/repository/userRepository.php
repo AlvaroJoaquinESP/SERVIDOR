@@ -18,7 +18,7 @@ class userRepository {
         $query->execute();
         $user = $query->fetch();
 
-        return (!empty($user)) ? new User($user['ID'], $user['NAME'], $user['PASSWORD'], $user['ROLE']) : null;
+        return (!empty($user)) ? new User($user['id'], $user['name'], $user['password'], $user['role']) : null;
     }
 }
 
