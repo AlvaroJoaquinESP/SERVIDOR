@@ -103,6 +103,24 @@ class AirportRepository
         $query->bindValue(4, $id);
         return $query->execute();
     }
+
+
+    public function import()
+    {
+        $file = file_get_contents($_FILES['tmp_name']);
+        $contenido = explode("\n", $file);
+        print_r($contenido);
+        if ($this->verify($contenido[0])) {
+            $sql = "INSERT INTO airport (location, numRoad, gateway) VALUES (?,?,?)";
+            $query = $this->getPDO()->prepare($sql);
+            $query->bindValue(1, $contenido[0]);
+            $query->bindValue(1, $contenido[1]);
+            $query->bindValue(1, $contenido[2]);
+            return $query->execute();
+        } else {
+            echo "El aeropuerto " . $contenido[0] . " ya existe.";
+        }
+    }
 }
 
 /**

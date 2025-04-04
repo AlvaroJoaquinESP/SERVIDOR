@@ -31,4 +31,5 @@ require_once("view/airportHeader.php");
         </tbody>
     </table>
 </main>
+<br>
 <?php require_once("view/airportFooter.php");?>

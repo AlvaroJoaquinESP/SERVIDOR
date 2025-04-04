@@ -98,17 +98,17 @@ class AirportController
             // Se llama igual que el array que recorro en airportList.
             $aeropuerto = $this->airportRepository->findByLocation($_REQUEST['location']);
             if (empty($aeropuerto)) {
-                echo "<p class='alert alert-danger' role='alert'>No existe el aeropuerto <b>" . $_REQUEST['location'] .".</b></p>";
+                echo "<p class='alert alert-danger' role='alert'>No existe el aeropuerto <b>" . $_REQUEST['location'] . ".</b></p>";
             }
             require_once("view/airportList.php");
             require_once("view/airportFooter.php");
-        }  
+        }
     }
 
 
     public function editController($id)
     {
-        
+
         $valor = $this->airportRepository->findById($id);
         // Traigo el aeropuerto con ese $id.
         require_once("view/airportHeader.php");
@@ -127,7 +127,7 @@ class AirportController
         $location = $_REQUEST['location'];
         $numRoad = $_REQUEST['numRoad'];
         $gateway = $_REQUEST['gateway'];
-        
+
         // Edito el aeropuerto.
         $result = $this->airportRepository->edit($id, $location, $numRoad, $gateway);
 
@@ -142,9 +142,33 @@ class AirportController
          * Vista
          */
 
-         require_once("view/airportHeader.php");
-         (new AirportController())->showList();
-         require_once("view/airportFooter.php");
+        require_once("view/airportHeader.php");
+        (new AirportController())->showList();
+        require_once("view/airportFooter.php");
+    }
+
+
+    public function import()
+    {
+        require_once("view/airportHeader.php");
+        require_once("view/airportImport.php");
+        require_once("view/airportFooter.php");
+    }
+
+    public function importAirport()
+    {
+
+        /**
+         * Logica
+         */
+        $this->import($_FILES['tmp_name']);
+
+
+
+
+        require_once("view/airportHeader.php");
+        (new AirportController())->showList();
+        require_once("view/airportFooter.php");
     }
 }
 

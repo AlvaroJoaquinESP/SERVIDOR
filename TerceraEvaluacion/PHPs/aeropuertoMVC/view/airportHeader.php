@@ -17,6 +17,7 @@
                 <?php
                 if ($_SESSION['name'] == "admin") {
                     echo "<a class='nav-link' href=" . BASE_URL . "/airport/add" . ">Insertar</a>";
+                    echo "<a class='nav-link' href=" . BASE_URL . "/airport/import" . ">Importar</a>";
                 }
                 ?>
 
