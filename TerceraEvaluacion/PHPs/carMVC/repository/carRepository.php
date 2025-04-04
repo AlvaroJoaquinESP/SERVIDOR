@@ -12,7 +12,7 @@ class CarRepository {
 
     public function getAll()
     {
-        $sql = "SELECT * FROM car";
+        $sql = "SELECT * FROM car ORDER BY MODEL";
         $query = $this->getPDO()->prepare($sql);
         $query->execute();
         $list = $query->fetchAll();
@@ -34,6 +34,19 @@ class CarRepository {
         $query->bindValue(2, $car->getBrand());
         $query->bindValue(3, $car->getYear());
         $query->bindValue(4, $car->getStock());
+
+         $query->execute();
+
+         
+         $this->getPDO()->lastInsertId();
+    }
+
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM car WHERE ID = ?";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $id);
         return $query->execute();
     }
 }

@@ -21,8 +21,8 @@
                 echo "<td>" . $value->getYear() . "</td>";
                 echo "<td>" . $value->getStock() . "</td>";
                 if ($_SESSION['role'] == "admin") {
-                    echo "<td><a class='btn btn-danger' href='" . BASE_URL . "/car/delete'>Eliminar</a></td>";
-                    echo "<td><a class='btn btn-warning' href='" . BASE_URL . "/car/edit'>Editar</a></td>";
+                    echo "<td><a class='btn btn-danger' href='" . BASE_URL . "/car/delete/".  $value->getId() . "'>Eliminar</a></td>";
+                    echo "<td><a class='btn btn-warning' href='" . BASE_URL . "/car/edit/".  $value->getId() . "'>Editar</a></td>";     
                 }
                 echo "</tr>";
             }

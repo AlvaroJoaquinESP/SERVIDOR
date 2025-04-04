@@ -12,6 +12,8 @@
     RewriteRule ^user/destroy$ index.php?controller=UserController&action=destroy [L]
     RewriteRule ^car/welcome$ index.php?controller=CarController&action=welcomeCar [L]
     RewriteRule ^car/list$ index.php?controller=CarController&action=showCarList [L]
+    RewriteRule ^car/delete/([0-9]+)$ index.php?controller=CarController&action=deleteCar&id=$1 [L]
+    RewriteRule ^car/edit/([0-9]+)$ index.php?controller=CarController&action=editCar&id=$1 [L]
     RewriteRule ^car/add$ index.php?controller=CarController&action=addForm [L]
     RewriteRule ^car/addCar$ index.php?controller=CarController&action=addCar [L]
     #Forma generica para las 4 opciones

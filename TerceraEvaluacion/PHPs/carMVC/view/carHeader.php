@@ -1,3 +1,5 @@
+<?php require_once("controller/carController.php") ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>· FlexiCar ·</title>
-    <link rel="stylesheet" href="../styles/bootstrap.css">
+    <link rel="stylesheet" href="<?=BASE_URL?>/styles/bootstrap.css">
 </head>
 
 <body>
@@ -20,4 +22,10 @@
                 </ul>
             </nav>
         </header>
+        <?php
+            if (isset($message)) {
+                echo "<p class='alert alert-info'>$message</p>";
+                $message = "";
+            }
+        ?>
         <hr>

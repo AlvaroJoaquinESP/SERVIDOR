@@ -44,8 +44,16 @@ class CarController
         * Lógica
         */
         $car = (new Car())->setModel($_REQUEST['model'])->setBrand($_REQUEST['brand'])->setYear($_REQUEST['year'])->setStock($_REQUEST['stock']);
-        
         $result = $this->carRepository->insert($car);
+
+
+        $message = "";
+        if ($result) {
+            $message = "Introducido con éxito el coche con id: " . $_REQUEST['id'];
+        } else {
+            $message = "Error al introducir el coche con id: " . $car->getId();
+        }
+
         /**
          * Vista
          */
@@ -54,6 +62,22 @@ class CarController
         //  require_once("view/carList.php"); ASÍ NO, YA QUE SALE VACÍO...
         (new CarController())->showCarList();
          require_once("view/carFooter.php");
+    }
 
+
+    public function deleteCar()
+    {
+        $result = $this->carRepository->delete($_REQUEST['id']);
+        
+        $message = "";
+        if ($result) {
+            $message = "Eliminado con éxito el coche con id: " . $_REQUEST['id'];
+        } else {
+            $message = "Error al eliminar el coche con id: " . $_REQUEST['id'];
+        }
+
+        require_once("view/carHeader.php");
+        (new CarController())->showCarList();
+         require_once("view/carFooter.php");
     }
 }
