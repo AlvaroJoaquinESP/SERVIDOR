@@ -7,6 +7,8 @@ require_once("controller/carController.php");
 
 
 
+
+
 if (isset($_REQUEST['action']) && isset($_REQUEST['controller'])) {
     $controller = $_REQUEST['controller'];
     $action = $_REQUEST['action'];

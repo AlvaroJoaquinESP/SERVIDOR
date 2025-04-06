@@ -11,6 +11,7 @@
     RewriteRule ^user/validate$ index.php?controller=UserController&action=validateUser [L]
     RewriteRule ^user/destroy$ index.php?controller=UserController&action=destroy [L]
     RewriteRule ^articles/welcome$ index.php?controller=ArticleController&action=welcome [L]
+    RewriteRule ^articles/list$ index.php?controller=ArticleController&action=listArticle [L]
     #Forma generica para las 4 opciones
     #RewriteRule ^([a-zA-Z]+)[/]?$ index.php?action=$1 [L]
 </IfModule>

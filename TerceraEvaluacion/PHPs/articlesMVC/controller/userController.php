@@ -35,7 +35,7 @@ class UserController {
     public function destroy()
     {
         session_destroy();
-        header("Location: " . BASE_URL . "/view/login.php");
+        header("Location: " . BASE_URL . "/user/login");
     }
 
 

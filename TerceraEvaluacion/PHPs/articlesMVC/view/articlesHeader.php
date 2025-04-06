@@ -11,9 +11,9 @@
 <body>
     <div class="container mt-3">
         <h1 class="text text-center">STOCK APP</h1>
-        <nav class="btn btn-toolbar">
+        <nav class="nav flex-row justify-content-center">
             <a class="nav-link" href="<?= BASE_URL ?>/articles/list">List</a>
-            <a class="nav-link mx-9" href="<?= BASE_URL ?>/articles/list">Update Stock</a>
+            <a class="nav-link mx-9" href="<?= BASE_URL ?>/articles/edit">Update Stock</a>
         </nav>
         <?php
         if (!empty($message)) {

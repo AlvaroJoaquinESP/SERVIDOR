@@ -9,6 +9,22 @@ class ArticleRepository {
         return (new ConfigDB())->getInstance();
     }
 
+
+    public function list()
+    {
+        $sql = "SELECT * FROM article ORDER BY stock DESC";
+        $query = $this->getPDO()->prepare($sql);
+        $query->execute();
+        $list = $query->fetchAll();
+        $article = [];
+
+        foreach ($list as $value) {
+            $article[] = new Article($value[0],$value[1],$value[2],$value[3],$value[4]);
+        }
+
+        return (!empty($article)) ? $article : null;
+    }
+
     
 }
 

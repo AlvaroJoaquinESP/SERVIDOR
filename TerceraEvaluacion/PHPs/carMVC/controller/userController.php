@@ -12,7 +12,9 @@ class UserController
 
     public function validateUser()
     {
-        $user = $this->userRepository->validate($_REQUEST['name'], $_REQUEST['password']);
+        $name = $_REQUEST['name'];
+        $pass = $_REQUEST['password'];
+        $user = $this->userRepository->validate($name, $pass);
 
         if (isset($user)) {
             $_SESSION['logged'] = true; // Para cerrar sesión.
