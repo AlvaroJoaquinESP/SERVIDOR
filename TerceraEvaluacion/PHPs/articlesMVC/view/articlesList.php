@@ -1,5 +1,4 @@
-<?php require_once("repository/articlesRepository.php"); ?>
-<main class="main">
+ <main class="main">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -22,7 +21,6 @@
                     echo "<td>" . $value->getPrice() . "</td>";
                 echo "</tr>";
             }
-
             ?>
         </tbody>
     </table>
