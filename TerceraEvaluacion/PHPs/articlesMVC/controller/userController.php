@@ -1,7 +1,8 @@
 <?php
 require_once("repository/userRepository.php");
 
-class UserController {
+class UserController
+{
 
     private $userRepository;
 
@@ -13,7 +14,13 @@ class UserController {
 
     public function showLogin()
     {
-        require_once("view/login.php");
+        if (!isset($_SESSION['logged'])) {
+            require_once("view/login.php");
+        } else {
+            (new ArticleController())->welcome();
+        }
+
+
     }
 
 
@@ -21,14 +28,16 @@ class UserController {
     {
         $name = $_REQUEST['name'];
         $pass = $_REQUEST['password'];
-        $user = $this->userRepository->validate($name ,md5($pass));
+        $user = $this->userRepository->validate($name, md5($pass));
 
-        if ($user) {
+        if (isset($user)) {
+            $_SESSION['logged'] = true;
             $_SESSION['name'] = $user->getName();
             $_SESSION['rol'] = $user->getRol();
             header("Location: " . BASE_URL . "/articles/welcome");
         } else {
-            header("Location: " . BASE_URL . "/view/login.php"); 
+            $message ="Credenciales incorrectas";
+            require_once("view/login.php");
         }
     }
 
@@ -37,11 +46,4 @@ class UserController {
         session_destroy();
         header("Location: " . BASE_URL . "/user/login");
     }
-
-
-
-
 }
-
-
-?>

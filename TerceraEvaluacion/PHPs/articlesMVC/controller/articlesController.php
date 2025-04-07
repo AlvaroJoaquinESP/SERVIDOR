@@ -27,6 +27,14 @@ class ArticleController {
         require_once("view/articlesFooter.php");
     }
 
+    public function showEditArticle()
+    {
+        require_once("view/articlesHeader.php");
+        $article = $this->articlesRepository->list();
+        require_once("view/articlesEdit.php");
+        require_once("view/articlesFooter.php");
+    }
+
 }
 
 ?>

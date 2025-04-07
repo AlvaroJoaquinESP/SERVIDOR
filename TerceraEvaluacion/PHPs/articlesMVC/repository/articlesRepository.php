@@ -2,7 +2,8 @@
 require_once("config/config.php");
 require_once("model/article.php");
 
-class ArticleRepository {
+class ArticleRepository
+{
 
     private function getPDO()
     {
@@ -19,13 +20,16 @@ class ArticleRepository {
         $article = [];
 
         foreach ($list as $value) {
-            $article[] = new Article($value[0],$value[1],$value[2],$value[3],$value[4]);
+            $article[] = new Article($value[0], $value[1], $value[2], $value[3], $value[4]);
         }
 
         return (!empty($article)) ? $article : null;
     }
 
-    
-}
 
-?>
+    public function edit() 
+    {
+        $id = $_REQUEST['select'];
+        $sql = "UPDATE article SET stock = "
+    }
+}
