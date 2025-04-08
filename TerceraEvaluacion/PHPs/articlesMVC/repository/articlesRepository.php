@@ -27,12 +27,43 @@ class ArticleRepository
     }
 
 
-    public function edit($stock, $id) 
+    public function edit($stock, $id)
     {
         $sql = "UPDATE article SET stock = ? WHERE id = ?";
         $query = $this->getPDO()->prepare($sql);
         $query->bindValue(1, $stock);
         $query->bindValue(2, $id);
         return $query->execute();
+    }
+
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM article WHERE id = ?";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $id);
+        return $query->execute();
+    }
+
+
+    public function add($article)
+    {
+        $sql = "INSERT INTO article (name, description, stock, price) VALUES (?,?,?,?)";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $article->getName());
+        $query->bindValue(2, $article->getDescription());
+        $query->bindValue(3, $article->getStock());
+        $query->bindValue(4, $article->getPrice());
+        return $query->execute();
+    }
+
+
+    public function verify($name)
+    {
+        $sql = "SELECT  count(*) FROM article WHERE id = ?";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $name);
+        $query->execute();
+        return $query->fetchColumn()>0;
     }
 }

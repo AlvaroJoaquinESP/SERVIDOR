@@ -13,7 +13,10 @@
     RewriteRule ^articles/welcome$ index.php?controller=ArticleController&action=welcome [L]
     RewriteRule ^articles/list$ index.php?controller=ArticleController&action=listArticle [L]
     RewriteRule ^articles/showEdit$ index.php?controller=ArticleController&action=showEditArticle [L]
-    RewriteRule ^articles/edit/([0-9]+)$ index.php?controller=ArticleController&action=editArticle&id=$1 [L]
+    RewriteRule ^articles/edit$ index.php?controller=ArticleController&action=editArticle [L]
+    RewriteRule ^articles/delete/([0-9]+)$ index.php?controller=ArticleController&action=deleteArticle&id=$1 [L]
+    RewriteRule ^articles/showAdd$ index.php?controller=ArticleController&action=showAdd [L]
+    RewriteRule ^articles/add$ index.php?controller=ArticleController&action=add [L]
     #Forma generica para las 4 opciones
     #RewriteRule ^([a-zA-Z]+)[/]?$ index.php?action=$1 [L]
 </IfModule>

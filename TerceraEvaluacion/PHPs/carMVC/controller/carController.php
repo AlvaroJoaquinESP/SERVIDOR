@@ -61,7 +61,7 @@ class CarController
          require_once("view/carHeader.php");
         //  require_once("view/carList.php"); ASÍ NO, YA QUE SALE VACÍO...
         (new CarController())->showCarList();
-         require_once("view/carFooter.php");
+        require_once("view/carFooter.php");
     }
 
 
@@ -78,6 +78,6 @@ class CarController
 
         require_once("view/carHeader.php");
         (new CarController())->showCarList();
-         require_once("view/carFooter.php");
+        require_once("view/carFooter.php");
     }
 }

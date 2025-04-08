@@ -56,3 +56,9 @@
 ¿Puedo controlar que si la lista está vacía, mostrar un mensaje con "Ups, no hay aeropuertos disponibles"? O algo por el estilo.
 
 En insertAirport, el mensaje del else se muestra arriba, no se muestra como $message.
+
+--
+
+¿Puedo controlar que si la lista está vacía, mostrar un mensaje con "Ups, no hay aeropuertos disponibles"? O algo por el estilo. Me muestra un error al estar vacío.
+
+¿Cómo cargo las vistas mejor con un método showList o con header?
