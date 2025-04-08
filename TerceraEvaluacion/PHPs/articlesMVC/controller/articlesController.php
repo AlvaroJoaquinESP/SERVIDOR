@@ -1,7 +1,8 @@
 <?php
 require_once("repository/articlesRepository.php");
 
-class ArticleController {
+class ArticleController
+{
 
     private $articlesRepository;
 
@@ -27,6 +28,7 @@ class ArticleController {
         require_once("view/articlesFooter.php");
     }
 
+
     public function showEditArticle()
     {
         require_once("view/articlesHeader.php");
@@ -35,6 +37,16 @@ class ArticleController {
         require_once("view/articlesFooter.php");
     }
 
-}
 
-?>
+    public function editArticle()
+    {
+        $result = $this->articlesRepository->edit($_REQUEST['stock'], $_REQUEST['select']);
+        
+  
+        require_once("view/articlesHeader.php");
+        require_once("view/articlesEdit.php");
+        require_once("view/articlesFooter.php");
+    }
+
+
+}

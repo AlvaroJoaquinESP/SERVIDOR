@@ -27,9 +27,12 @@ class ArticleRepository
     }
 
 
-    public function edit() 
+    public function edit($stock, $id) 
     {
-        $id = $_REQUEST['select'];
-        $sql = "UPDATE article SET stock = "
+        $sql = "UPDATE article SET stock = ? WHERE id = ?";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $stock);
+        $query->bindValue(2, $id);
+        return $query->execute();
     }
 }
