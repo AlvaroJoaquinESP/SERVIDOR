@@ -55,8 +55,8 @@ class ArticleController
     public function deleteArticle()
     {
         $article = $this->articlesRepository->delete($_REQUEST['id']);
-        // header("Location: " . BASE_URL . "/articles/list");
-        (new ArticleController())->listArticle();
+        header("Location: " . BASE_URL . "/articles/list");
+        // (new ArticleController())->listArticle();
 
     }
 
@@ -85,6 +85,32 @@ class ArticleController
             require_once("view/articlesList.php");
         }
     }
+
+
+    public function showImport()
+    {
+        require_once("view/articlesHeader.php");
+        require_once("view/articlesImport.php");
+        require_once("view/articlesFooter.php");
+    }
+
+
+    public function importArticle()
+    {
+        $articles =  explode("\n", trim($_REQUEST['import']));
+
+        foreach ($articles as  $value) {
+            $article = explode(",", trim($value));
+            if($this->articlesRepository->verify($article[0])){
+                echo "Ya existe";
+            } else {
+                var_dump($article);
+                $this->articlesRepository->add((new Article())->setName($article[0])->setDescription($article[1])->setStock($article[2])->setPrice($article[3]));
+                header("Location: " . BASE_URL . "/articles/list"); 
+            }
+        }
+    }
+
 
 
 }

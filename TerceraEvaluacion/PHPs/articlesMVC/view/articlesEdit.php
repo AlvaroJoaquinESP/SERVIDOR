@@ -12,7 +12,7 @@
         </select>
         <hr>
         <label for="stock" class="form-label">New Stock</label>
-        <input type="number" name="stock" id="stock" class="form-control">
+        <input type="number" name="stock" id="stock" class="form-control" step="0.01" required>
         <br>
         <button class="btn btn-success">Editar</button>
     </form>

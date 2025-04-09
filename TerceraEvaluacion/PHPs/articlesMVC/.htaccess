@@ -17,6 +17,8 @@
     RewriteRule ^articles/delete/([0-9]+)$ index.php?controller=ArticleController&action=deleteArticle&id=$1 [L]
     RewriteRule ^articles/showAdd$ index.php?controller=ArticleController&action=showAdd [L]
     RewriteRule ^articles/add$ index.php?controller=ArticleController&action=add [L]
+    RewriteRule ^articles/showImport$ index.php?controller=ArticleController&action=showImport [L]
+    RewriteRule ^articles/import$ index.php?controller=ArticleController&action=importArticle [L]
     #Forma generica para las 4 opciones
     #RewriteRule ^([a-zA-Z]+)[/]?$ index.php?action=$1 [L]
 </IfModule>

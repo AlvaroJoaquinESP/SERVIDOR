@@ -23,9 +23,8 @@ class ArticleRepository
             $article[] = new Article($value[0], $value[1], $value[2], $value[3], $value[4]);
         }
 
-        return (!empty($article)) ? $article : null;
+        return $article;
     }
-
 
     public function edit($stock, $id)
     {
@@ -60,10 +59,10 @@ class ArticleRepository
 
     public function verify($name)
     {
-        $sql = "SELECT  count(*) FROM article WHERE id = ?";
+        $sql = "SELECT  count(*) FROM article WHERE name = ?";
         $query = $this->getPDO()->prepare($sql);
         $query->bindValue(1, $name);
         $query->execute();
-        return $query->fetchColumn()>0;
+        return $query->fetchColumn() > 0; 
     }
 }

@@ -15,6 +15,7 @@
             <a class="nav-link" href="<?= BASE_URL ?>/articles/list">List</a>
             <a class="nav-link" href="<?= BASE_URL ?>/articles/showEdit">Update Stock</a>
             <a class="nav-link" href="<?= BASE_URL ?>/articles/showAdd">Add Product</a>
+            <a class="nav-link" href="<?= BASE_URL ?>/articles/showImport">Import</a>
         </nav>
         <?php
         if (!empty($message)) {
