@@ -1,6 +1,4 @@
 <main>
-
-    
     <h1>Formulario de inserción</h1>
     <form action="<?= BASE_URL ?>/airport/newImport" method="post" class="form">
         <label for="file" class="form-label">File</label>

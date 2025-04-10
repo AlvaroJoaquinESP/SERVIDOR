@@ -36,7 +36,8 @@ class UserController
             header("Location: " . BASE_URL . "/book/home");
         } else {
             $message = "Credenciales incorrectas";
-            header("Location: " . BASE_URL . "/user/login");
+            require_once("view/login.php");
+
         }
     }
 

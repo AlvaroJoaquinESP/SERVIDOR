@@ -99,7 +99,7 @@ class BookRepository
 
     public function edit($pages, $author, $id)
     {
-        $sql = "UPDATE book SET pages = ? AND author = ? WHERE id = ?";
+        $sql = "UPDATE book SET pages = ?, author = ? WHERE id = ?";
         $query = $this->getPDO()->prepare($sql);
         $query->bindValue(1, $pages);
         $query->bindValue(2, $author);

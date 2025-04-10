@@ -1,4 +1,5 @@
 <main class="main">
+    
     <table class="table table-striped">
         <thead>
             <tr>
@@ -18,13 +19,13 @@
             } else {
                 foreach ($books as $value) {
                     echo "<tr>";
-                        echo "<td>" . $value->getId() . "</td>";
-                        echo "<td>" . $value->getTitle() . "</td>";
-                        echo "<td>" . $value->getAuthor() . "</td>";
-                        echo "<td>" . $value->getYear() . "</td>";
-                        echo "<td>" . $value->getPages() . "</td>";
-                        echo "<td><a class='btn btn-secondary' href='" . BASE_URL . "/book/delete/" . $value->getId() . "'>Delete</a></td>";
-                        echo "<td><a class='btn btn-warning' href='" . BASE_URL . "/book/showEdit/"  . $value->getId() . "'>Edit</a></td>";
+                    echo "<td>" . $value->getId() . "</td>";
+                    echo "<td>" . $value->getTitle() . "</td>";
+                    echo "<td>" . $value->getAuthor() . "</td>";
+                    echo "<td>" . $value->getYear() . "</td>";
+                    echo "<td>" . $value->getPages() . "</td>";
+                    echo "<td><a class='btn btn-secondary' href='" . BASE_URL . "/book/delete/" . $value->getId() . "'>Delete</a></td>";
+                    echo "<td><a class='btn btn-warning' href='" . BASE_URL . "/book/showEdit/"  . $value->getId() . "'>Edit</a></td>";
                     echo "</tr>";
                 }
             }

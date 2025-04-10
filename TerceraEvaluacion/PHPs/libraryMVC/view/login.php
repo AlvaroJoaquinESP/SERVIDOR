@@ -13,7 +13,7 @@
     <div class="container mt-3">
         <h1 class="text text-center">Log In</h1>
         <?php
-            if (isset($message)) {
+            if (isset($message) && !empty($message)) {
                 echo "<p>$message</p>";
             }
         ?>

@@ -54,7 +54,8 @@ class BookController
             $this->bookRepository->add((new Book())->setTitle($title)->setAuthor($author)->setYear($year)->setPages($pages));
             header("Location: " . BASE_URL . "/book/list");
         } else {
-            echo "Hello Cipri";
+            $message = "No permission to add a book for these year, already got one";
+            (new BookController())->bookList();
         }
 
 
@@ -76,8 +77,6 @@ class BookController
         $pages = $_REQUEST['pages'];
         $author = $_REQUEST['author'];
         $id = $_REQUEST['id'];
-
-        echo $pages, $author, $id;
 
         $this->bookRepository->edit($pages,$author,$id);
         header("Location: " . BASE_URL . "/book/list");
