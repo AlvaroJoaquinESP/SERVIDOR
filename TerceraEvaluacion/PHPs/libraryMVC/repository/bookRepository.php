@@ -2,8 +2,9 @@
 require_once("config/configDB.php");
 require_once("model/book.php");
 
-class BookRepository {
-    
+class BookRepository
+{
+
     private function getPDO()
     {
         return (new ConfigDB())->getInstance();
@@ -20,7 +21,7 @@ class BookRepository {
         $books = [];
 
         foreach ($list as $value) {
-            $books[] = new Book($value[0],$value[1],$value[2],$value[3]);
+            $books[] = new Book($value[0], $value[1], $value[2], $value[3], $value[4]);
         }
 
         return $books;
@@ -54,11 +55,55 @@ class BookRepository {
         $query = $this->getPDO()->prepare($sql);
         $query->bindValue(1, $year);
         $query->execute();
-        return $query->fetchColumn();
+        return $query->fetchColumn() > 0; // Devuelve un contador.
     }
 
 
+    public function search($author)
+    {
+        $sql = "SELECT * FROM book WHERE author = ?";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $author);
+        $query->execute();
+        $list = $query->fetchAll();
+
+        $books = [];
+
+        foreach ($list as $value) {
+            $books[] = (new Book($value[0], $value[1], $value[2], $value[3], $value[4]));
+        }
+
+        return $books;
+    }
+
+
+    public function update($id, $pages)
+    {
+        $sql = "UPDATE book SET pages = ? WHERE id = ?";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $pages);
+        $query->bindValue(2, $id);
+        return $query->execute();
+    }
+
+
+    public function findById($id)
+    {
+        $sql = "SELECT * FROM book WHERE id = ?";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $id);
+        $query->execute();
+        return $query->fetch();
+    }
+
+
+    public function edit($pages, $author, $id)
+    {
+        $sql = "UPDATE book SET pages = ? AND author = ? WHERE id = ?";
+        $query = $this->getPDO()->prepare($sql);
+        $query->bindValue(1, $pages);
+        $query->bindValue(2, $author);
+        $query->bindValue(3, $id);
+        return $query->execute();
+    }
 }
-
-
-?>

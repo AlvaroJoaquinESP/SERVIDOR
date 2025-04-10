@@ -24,7 +24,7 @@
                         echo "<td>" . $value->getYear() . "</td>";
                         echo "<td>" . $value->getPages() . "</td>";
                         echo "<td><a class='btn btn-secondary' href='" . BASE_URL . "/book/delete/" . $value->getId() . "'>Delete</a></td>";
-                        echo "<td><a class='btn btn-warning' href='" . BASE_URL . "/book/edit/" . $value->getId() . "'>Edit</a></td>";
+                        echo "<td><a class='btn btn-warning' href='" . BASE_URL . "/book/showEdit/"  . $value->getId() . "'>Edit</a></td>";
                     echo "</tr>";
                 }
             }

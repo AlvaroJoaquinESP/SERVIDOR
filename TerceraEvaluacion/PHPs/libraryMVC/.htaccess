@@ -13,6 +13,15 @@
     RewriteRule ^book/home$ index.php?controller=BookController&action=welcome [L]
     RewriteRule ^book/list$ index.php?controller=BookController&action=bookList [L]
     RewriteRule ^book/delete/([0-9]+)$ index.php?controller=BookController&action=bookDelete&id=$1 [L]
+    RewriteRule ^book/edit$ index.php?controller=BookController&action=editBook [L]
+    RewriteRule ^book/showAdd$ index.php?controller=BookController&action=showAdd [L]
+    RewriteRule ^book/showEdit/([0-9]+)$ index.php?controller=BookController&action=showEdit&id=$1 [L]
+    RewriteRule ^book/showSearch$ index.php?controller=BookController&action=showSearch [L]
+    RewriteRule ^book/showUpdate$ index.php?controller=BookController&action=showUpdate [L]
+    RewriteRule ^book/showImport$ index.php?controller=BookController&action=showImport [L]
+    RewriteRule ^book/add$ index.php?controller=BookController&action=add [L]
+    RewriteRule ^book/search$ index.php?controller=BookController&action=searchBook [L]
+    RewriteRule ^book/update$ index.php?controller=BookController&action=updateBook [L]
     #Forma generica para las 4 opciones
     #RewriteRule ^([a-zA-Z]+)[/]?$ index.php?action=$1 [L]
 </IfModule>

@@ -15,10 +15,10 @@
             <br>
             <nav class="nav flex-row justify-content-center">
                 <a href="<?= BASE_URL ?>/book/list" class="nav-link">List</a>
-                <a href="<?= BASE_URL ?>/book/add" class="nav-link">Add</a>
-                <a href="<?= BASE_URL ?>/book/search" class="nav-link">Search</a>
-                <a href="<?= BASE_URL ?>/book/update" class="nav-link">Update Pages</a>
-                <a href="<?= BASE_URL ?>/book/import" class="nav-link">Import Book</a>
+                <a href="<?= BASE_URL ?>/book/showAdd" class="nav-link">Add</a>
+                <a href="<?= BASE_URL ?>/book/showSearch" class="nav-link">Search</a>
+                <a href="<?= BASE_URL ?>/book/showUpdate" class="nav-link">Update Pages</a>
+                <a href="<?= BASE_URL ?>/book/showImport" class="nav-link">Import Book</a>
             </nav>
         </header>
         <hr>
