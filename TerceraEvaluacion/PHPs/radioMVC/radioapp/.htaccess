@@ -1,0 +1,30 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymLinks
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+	
+	RewriteRule ^user/login$ index.php?controller=UserController&action=showLogin [L]
+	RewriteRule ^user/validate$ index.php?controller=UserController&action=validate [L]
+	RewriteRule ^user/destroy$ index.php?controller=UserController&action=destroy [L]
+
+	RewriteRule ^song/welcome$ index.php?controller=SongController&action=welcome [L]
+	RewriteRule ^song/list$ index.php?controller=SongController&action=showList [L]
+	RewriteRule ^song/showAdd$ index.php?controller=SongController&action=showAdd [L]
+	RewriteRule ^song/add$ index.php?controller=SongController&action=addSong [L]
+    RewriteRule ^song/delete/([0-9]+)$ index.php?controller=SongController&action=deleteSong&id=$1 [L]
+    RewriteRule ^song/emit/([0-9]+)$ index.php?controller=SongController&action=emitSong&id=$1 [L]
+
+    #RewriteRule ^airport/list$ index.php?controller=AirportController&action=showList [L]
+    #RewriteRule ^airport/showAdd$ index.php?controller=AirportController&action=showAdd [L]
+    #RewriteRule ^airport/add$ index.php?controller=AirportController&action=add [L]
+    #RewriteRule ^airport/delete/([0-9]+)$ index.php?controller=AirportController&action=deleteAirport[L]
+ 
+</IfModule>
+
+# Flag: [L]
+# Stop the rewriting process immediately and don't apply any more rules.
+
+# Referencia:
+# - https://httpd.apache.org/docs/current/mod/mod_rewrite.html
