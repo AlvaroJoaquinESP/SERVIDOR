@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
      //$this->call([ExampleSeeder:class]) Para cargar seeders nuevos
+     $this->call([OrderSeeder::class]);
 
     }
 }
