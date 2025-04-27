@@ -15,7 +15,10 @@ Route::get('/hello', function () {
 // Ejecuta el método index de la clase OrderController.
 Route::get('/orders', [OrderController::class, 'index']);
 
-
+// Parámetros.
 Route::get('/show/{id}', [OrderController::class, 'show']);
+
+
+Route::get('/destroy/{id}', [OrderController::class, 'destroy']);
 
 
