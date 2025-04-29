@@ -15,10 +15,16 @@ Route::get('/hello', function () {
 // Ejecuta el método index de la clase OrderController.
 Route::get('/orders', [OrderController::class, 'index']);
 
+// Tipo post. ¡¡Todo aquello que modifique la bbdd es de tipo post!!
+Route::post('/create', [OrderController::class, 'create']);
+
 // Parámetros.
 Route::get('/show/{id}', [OrderController::class, 'show']);
 
 
 Route::get('/destroy/{id}', [OrderController::class, 'destroy']);
+
+
+Route::get('/destroy2/{id}', [OrderController::class, 'destroy2']);
 
 

@@ -2,28 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ApiResponse;
+use App\Http\Requests\CreateOrderRequest;
 use App\Models\Order;
-use Dotenv\Validator;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redis;
+use App\Services\OrderService;
 
 class OrderController extends Controller
 {
+    protected $orderService;
+
+    public function __construct(OrderService $orderService)
+    {
+        $this->orderService = $orderService;
+    }
+
     public function index()
     {
         // Un getAll();
-        $orders = Order::all();
-        return response()->json([
-            'status' => true,
-            'message' => 'Orders retrieved successfully',
-            'data' => $orders
-        ], 200);
+        $orders = $this->orderService->all();
+        
+        // No es obligatorio el 200.
+        return ApiResponse::success($orders,"Orders retrieved successfully", 200);
+        
+        // Me ahorro todo este tocho con el success de arriba. Que sale de mi Helper APIRESPONSE.
+        
+        // return response()->json([
+        //     'status' => true,
+        //     'message' => 'Orders retrieved successfully',
+        //     'data' => $orders
+        // ], 200);
     }
 
 
     public function show($id)
     {
-        $order = Order::findOrFail($id);
+        $order = $this->orderService->show($id);
         return response()->json([
             'status' => true,
             'message' => 'Order find successfully',
@@ -36,7 +49,7 @@ class OrderController extends Controller
 
     public function destroy($id)
     {
-        $order = Order::findOrFail($id);
+        $order = $this->orderService->destroy($id);
         $order->delete();
 
         return response()->json([
@@ -48,12 +61,22 @@ class OrderController extends Controller
 
     public function destroy2($id)
     {
-        $order = Order::findOrFail($id);
+        $order = $this->orderService->destroy2($id);
         $order->delete();
 
         return response()->noContent();
         /**
          * El método noContent() INCLUYE EL CÓDIGO 204, por lo que no hace falta ponerlo.
          */
+    }
+
+
+
+    // Lo que recibe me permite decirle que necesito que me mande lo que he definido en rules. Y además, me va a servir para sacar los datos que me han venido de esos valores definidos, si están definidos. Vienen en un array asociativo.
+    public function create(CreateOrderRequest $createOrderRequest)
+    {
+        $params = $createOrderRequest->all();
+        $this->orderService->create($params); 
+        
     }
 }
