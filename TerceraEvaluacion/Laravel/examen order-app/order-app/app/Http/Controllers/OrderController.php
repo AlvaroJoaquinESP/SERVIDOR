@@ -23,6 +23,7 @@ class OrderController extends Controller
         
         // No es obligatorio el 200.
         return ApiResponse::success($orders,"Orders retrieved successfully", 200);
+
         
         // Me ahorro todo este tocho con el success de arriba. Que sale de mi Helper APIRESPONSE.
         
@@ -37,11 +38,14 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = $this->orderService->show($id);
-        return response()->json([
-            'status' => true,
-            'message' => 'Order find successfully',
-            'data' => $order
-        ], 200);
+        
+        return ApiResponse::success($order, 'Order find successfully');
+
+        // return response()->json([
+        //     'status' => true,
+        //     'message' => 'Order find successfully',
+        //     'data' => $order
+        // ], 200);
     }
 
 
@@ -52,10 +56,12 @@ class OrderController extends Controller
         $order = $this->orderService->destroy($id);
         $order->delete();
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Order deleted successfully'
-        ], 200);
+        return ApiResponse::success($order, 'Order deleted successfully');
+
+        // return response()->json([
+        //     'status' => true,
+        //     'message' => 'Order deleted successfully'
+        // ], 200);
     }
 
 
@@ -64,6 +70,7 @@ class OrderController extends Controller
         $order = $this->orderService->destroy2($id);
         $order->delete();
 
+        // Puedo poner esto en vez de Apiresponse::success...
         return response()->noContent();
         /**
          * El método noContent() INCLUYE EL CÓDIGO 204, por lo que no hace falta ponerlo.
@@ -76,7 +83,9 @@ class OrderController extends Controller
     public function create(CreateOrderRequest $createOrderRequest)
     {
         $params = $createOrderRequest->all();
-        $this->orderService->create($params); 
+        $order = $this->orderService->create($params); 
         
+        return ApiResponse::success($order, 'Order created successfully',201);
+
     }
 }

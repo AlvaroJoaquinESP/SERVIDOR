@@ -43,14 +43,15 @@ class OrderService
 
     public function create($params)
     {
-        $order4 = new Order();
+        $order = new Order();
 
         //Primera opción.
         // $order4->name =$params['name'];
         // $order4->used =$params['used'];
 
-        //Segunda opción.
-        $order4->fill($params);
+        //Segunda opción. Gracias al protected $fillable del Modelo. Le indico los campos que debe mapear gracias a lo del modelo.
+        $order->fill($params);
+        return $this->orderRepository->create($order);
     }
     
 }

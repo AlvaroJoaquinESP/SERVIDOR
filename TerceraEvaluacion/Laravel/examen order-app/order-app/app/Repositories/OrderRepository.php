@@ -31,7 +31,10 @@ class OrderRepository
 
     public function create(Order $order)
     {
-        return $order->save();
+        $order->save();
+
+        // Para que me muestre el objeto. si lo pongo con return $order->save(), devuelve data (true o false).
+        return $order;
     }
     
 }
