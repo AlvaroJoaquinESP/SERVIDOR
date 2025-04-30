@@ -13,7 +13,7 @@ class OrderRepository
 
     public function show($id)
     {
-        return Order::findOrFail($id);
+        return Order::find($id);
     }
 
 

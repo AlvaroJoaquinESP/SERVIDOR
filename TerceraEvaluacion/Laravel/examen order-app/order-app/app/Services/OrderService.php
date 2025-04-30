@@ -3,8 +3,10 @@
 
 namespace App\Services;
 
+use App\Exceptions\OrderNotFoundException;
 use App\Models\Order;
 use App\Repositories\OrderRepository;
+use Illuminate\Http\Response;
 
 class OrderService 
 {
@@ -25,7 +27,10 @@ class OrderService
 
     public function show($id)
     {
-        return $this->orderRepository->show($id);
+        $order =  $this->orderRepository->show($id);
+        if(!$order){
+            throw new OrderNotFoundException("No existe order con id{$id}",Response::HTTP_NOT_FOUND);
+        }
     }
 
 
