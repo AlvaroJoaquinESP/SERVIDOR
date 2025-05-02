@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ApiResponse;
 use App\Http\Requests\CreateOrderRequest;
-use App\Models\Order;
 use App\Services\OrderService;
 
 class OrderController extends Controller
