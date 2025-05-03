@@ -11,4 +11,10 @@ class Watch extends Model
         'brand',
         'type'
     ];
+
+
+    // En el getAll ya me sale todo bien, debería de poner algo? ¿Cómo se pondría un enum?
+    protected $cast = [
+
+    ];
 }

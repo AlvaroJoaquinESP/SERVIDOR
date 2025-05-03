@@ -7,3 +7,7 @@ Extraer car-app.zip y ejecutar los siguientes comandos en un terminal sobre el d
 Comprueba en el navegador esta url http://localhost:8000/api/hello
 
 Si se carga correctamente, desconectate de internet y pide el enunciado del examen.
+
+¿Puedo modificar mi ApiResponse?
+En las excepciones, al llamar al constructor con parent::, estoy llamando al primer constructor de esa clase, ya que es la que recibe algun mensaje, ¿no?
+¿Las excepciones van a ser siempre iguales?

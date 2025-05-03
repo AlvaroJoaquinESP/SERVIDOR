@@ -1,6 +1,6 @@
 <?php
 
-/* Este namespace significa para indicar queestablece que todas las clases, interfaces, funciones y constantes declaradas después de esta línea pertenecen al espacio de nombres "App\Repositories". */
+/* Este namespace establece que  que todas las clases, interfaces, funciones y constantes declaradas después de esta línea pertenecen al espacio de nombres "App\Repositories". */
 namespace App\Repositories;
 use App\Models\Order;
 

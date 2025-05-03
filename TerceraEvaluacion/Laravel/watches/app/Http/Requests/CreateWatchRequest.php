@@ -4,7 +4,11 @@ namespace App\Http\Requests;
 
 use App\Enums\WatchBrand;
 use App\Enums\WatchType;
+use App\Helpers\ApiResponse;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Response;
 use Illuminate\Validation\Rules\Enum;
 
 class CreateWatchRequest extends FormRequest
@@ -12,10 +16,12 @@ class CreateWatchRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
-    {
-        return false;
-    }
+
+     // SI PONGO ESTE MÉTODO, AL CREAR PUEDE DAR ERROR DE UNAUTHORIZED.
+    // public function authorize(): bool
+    // {
+    //     return false;
+    // }
 
     /**
      * Get the validation rules that apply to the request.
@@ -29,5 +35,11 @@ class CreateWatchRequest extends FormRequest
             'brand' => ['required', 'string', new Enum(WatchBrand::class)],
             'type' => ['required', 'string', new Enum(WatchType::class)]
         ];
+    }
+
+
+    public function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(ApiResponse::error($validator->errors(),"Error Validator", Response::HTTP_UNPROCESSABLE_ENTITY/* 422 */));
     }
 }
