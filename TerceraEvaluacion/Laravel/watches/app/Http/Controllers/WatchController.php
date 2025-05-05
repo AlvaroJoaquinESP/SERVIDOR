@@ -32,7 +32,6 @@ class WatchController extends Controller
     public function get($id)
     {
         
-
         return ApiResponse::success($this->watchService->get($id), "Found the watch with id {$id}");
         // if (!$watch) {
         //     throw new WatchNotFoundException('Not found the watch with id {$id}',404);

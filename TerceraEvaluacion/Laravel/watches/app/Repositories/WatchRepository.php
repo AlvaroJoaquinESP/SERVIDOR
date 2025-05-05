@@ -16,7 +16,7 @@ class WatchRepository
     public function get($id)
     {
         // return Watch::with(['Diver','ROLEX', 'SPORT'])->find($id);
-        return Watch::findOrFail($id);
+        return Watch::find($id);
 
         /**
          * Con este no recibe la exception. Le puedo poner el id que quiera y pone que lo encuentra.
