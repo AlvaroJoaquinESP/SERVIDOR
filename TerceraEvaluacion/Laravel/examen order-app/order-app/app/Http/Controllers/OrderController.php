@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\ApiResponse;
 use App\Http\Requests\CreateOrderRequest;
 use App\Services\OrderService;
+use Illuminate\Http\Response;
 
 class OrderController extends Controller
 {
@@ -93,6 +94,17 @@ class OrderController extends Controller
         
         return ApiResponse::success($order, 'Order created successfully',201);
 
+    }
+
+
+    /**
+     * Transport functions.
+     */
+
+    public function getAll()
+    {
+        $transport = $this->orderService->getAll();
+        return ApiResponse::success($transport,"Success", Response::HTTP_OK);
     }
 
 }

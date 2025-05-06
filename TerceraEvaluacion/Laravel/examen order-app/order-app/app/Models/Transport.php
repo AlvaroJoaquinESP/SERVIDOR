@@ -21,6 +21,6 @@ class Transport extends Model
     // En la que 'cede' la fk, ponemos esta función.
     function order() 
     {
-        return $this->hasOne(Order::class);
+        return $this->hasMany(Order::class);
     }
 }
