@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,3 +11,6 @@ Route::get('/user', function (Request $request) {
 Route::get('/hello', function () {
     return 'Bienvenid@ al examen de recuperación de laravel ;)';
 });
+
+
+Route::get('/getAllByID/{id}', [OrderController::class, 'getAllByID']);

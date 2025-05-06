@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Exceptions\WatchNotFoundException;
 use App\Models\Watch;
 use App\Repositories\WatchRepository;
-use Illuminate\Http\Client\Response as ClientResponse;
 use Illuminate\Http\Response;
 
 class WatchService

@@ -36,6 +36,7 @@ class CreateOrderRequest extends FormRequest
     }
 
 
+    // Para cuando falla una de las reglas.
     public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(ApiResponse::error($validator->errors(), 'Error validator', Response::HTTP_UNPROCESSABLE_ENTITY));

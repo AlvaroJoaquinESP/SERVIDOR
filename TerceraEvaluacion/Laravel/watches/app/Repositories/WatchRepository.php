@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\CreateWatchRequest;
 use App\Models\Watch;
 
 class WatchRepository
