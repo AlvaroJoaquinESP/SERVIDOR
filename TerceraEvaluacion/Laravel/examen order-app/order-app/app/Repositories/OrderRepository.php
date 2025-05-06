@@ -12,6 +12,13 @@ class OrderRepository
     }
 
 
+    public function allWithTransport()
+    {
+        // Dentro del witch meto el método que he definido en Order.
+        return Order::with('transport')->get();
+    }
+
+
     public function show($id)
     {
         return Order::find($id);

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('used');
+            $table->foreignId('transport_id')->constrained();
             $table->timestamps();
         });
     }

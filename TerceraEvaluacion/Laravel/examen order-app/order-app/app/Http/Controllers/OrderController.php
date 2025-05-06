@@ -34,6 +34,13 @@ class OrderController extends Controller
     }
 
 
+    public function indexComplete()
+    {
+        $order = $this->orderService->allWithTransport();
+        return ApiResponse::success($order, "Success");
+    }
+
+
     public function show($id)
     {
         $order = $this->orderService->show($id);

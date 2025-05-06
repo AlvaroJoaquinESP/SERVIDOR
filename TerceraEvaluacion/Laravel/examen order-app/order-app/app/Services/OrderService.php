@@ -25,6 +25,12 @@ class OrderService
     }
 
 
+    public function allWithTransport()
+    {
+        return $this->orderRepository->allWithTransport();
+    }
+
+
     public function show($id)
     {
         $order =  $this->orderRepository->show($id);

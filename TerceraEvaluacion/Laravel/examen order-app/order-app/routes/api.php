@@ -28,3 +28,5 @@ Route::get('/destroy/{id}', [OrderController::class, 'destroy']);
 Route::get('/destroy2/{id}', [OrderController::class, 'destroy2']);
 
 
+Route::get('/indexComplete', [OrderController::class, 'indexComplete']);
+

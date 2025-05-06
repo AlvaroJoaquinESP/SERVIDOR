@@ -23,4 +23,9 @@ class Order extends Model
         'used' => 'boolean',
     ];
     
+    // Donde está definida la fk, tenemos que poner esta funcion.
+    function transport()
+    {
+        return $this->belongsTo(Transport::class);
+    }
 }
