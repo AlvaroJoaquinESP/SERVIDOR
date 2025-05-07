@@ -8,7 +8,7 @@ class OrderRepository {
     
     public function getAllByID($client_id)
     {
-        return Client::where('client_id',$client_id)->get();
+        return Client::where('client_id')->get();
     }
 }
 
