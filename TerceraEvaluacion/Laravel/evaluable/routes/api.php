@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ControllerGeneral;
 use App\Http\Controllers\OrderController;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ Route::get('/hello', function () {
 });
 
 
-Route::get('/getAllByID/{id}', [OrderController::class, 'getAllByID']);
+Route::get('/getAllByID/{id}', [ControllerGeneral::class, 'getAllByID']);
 
 
-Route::get('/getByID/{id}', [OrderController::class, 'getByID']);
+Route::get('/getByID/{id}', [ControllerGeneral::class, 'getByID']);

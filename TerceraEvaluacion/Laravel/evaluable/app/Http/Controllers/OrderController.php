@@ -8,28 +8,28 @@ use Illuminate\Http\Response;
 
 class OrderController extends Controller
 {
-    protected $orderService;
+    // protected $orderService;
 
 
-    public function __construct(OrderService $order_service)
-    {
-        $this->orderService = $order_service;
-    }
+    // public function __construct(OrderService $order_service)
+    // {
+    //     $this->orderService = $order_service;
+    // }
 
 
-    public function getAllByID($client_id)
-    {
-        $orders = $this->orderService->getAllByID($client_id);
-        return ApiResponse::success($orders,"Orders found");
-    }
+    // public function getAllByID($client_id)
+    // {
+    //     $orders = $this->orderService->getAllByID($client_id);
+    //     return ApiResponse::success($orders,"Orders found");
+    // }
 
 
-    public function getByID($id)
-    {
-        $order = $this->orderService->getByID($id);
+    // public function getByID($id)
+    // {
+    //     $order = $this->orderService->getByID($id);
 
-        return ApiResponse::success($order, 'Found', Response::HTTP_OK);
-    }
+    //     return ApiResponse::success($order, 'Found', Response::HTTP_OK);
+    // }
 
     
 }

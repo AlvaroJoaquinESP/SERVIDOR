@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Services;
+// namespace App\Services;
 
-use App\Repositories\OrderRepository;
+// use App\Repositories\OrderRepository;
 
-class ClientService {
+// class ClientService {
 
-    protected $orderRepository;
+//     protected $orderRepository;
 
 
-    public function __construct(OrderRepository $order_repository)
-    {
-        $this->orderRepository = $order_repository;
-    }
+//     public function __construct(OrderRepository $order_repository)
+//     {
+//         $this->orderRepository = $order_repository;
+//     }
 
 
    
-}
+// }
 
 ?>

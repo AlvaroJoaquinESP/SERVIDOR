@@ -20,9 +20,9 @@ class OrderRepository {
 
     public function getByID($id)
     {
-        //return Order::with('clients')->where('id', $id)->get();
-        return Order::with('clients')->find($id);
-
+        //return Order::with('clients')->where('id', $id)->get(); DEVUELVE Array de obj
+        return Order::with('clients')->find($id); // DEVUELVE Obj
+        
     }
 }
 
