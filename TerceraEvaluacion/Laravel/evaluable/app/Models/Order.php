@@ -13,4 +13,11 @@ class Order extends Model
         'client_id'
     ];
 
+
+    // Donde está la fk, tengo esta función.
+    public function clients()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
 }

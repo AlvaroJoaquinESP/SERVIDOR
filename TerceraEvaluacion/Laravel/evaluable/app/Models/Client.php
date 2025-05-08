@@ -17,5 +17,11 @@ class Client extends Model
         'prime' => 'boolean'
     ];
 
+    // En la que 'cede' la fk, ponemos esta función.
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
 
 }
