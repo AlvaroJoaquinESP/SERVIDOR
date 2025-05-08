@@ -21,7 +21,9 @@ class OrderRepository {
 
     public function getByID($id)
     {
-        return Order::find($id);
+        //return Order::with('clients')->where('id', $id)->get();
+        return Order::with('clients')->find($id);
+
     }
 }
 
