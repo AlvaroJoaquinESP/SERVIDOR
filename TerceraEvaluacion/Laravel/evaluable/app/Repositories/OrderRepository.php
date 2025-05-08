@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Repositories;
-
-use App\Models\Client;
+ 
 use App\Models\Order;
 
 class OrderRepository {
