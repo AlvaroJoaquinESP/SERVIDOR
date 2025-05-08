@@ -16,4 +16,6 @@ class Client extends Model
     protected $casts = [
         'prime' => 'boolean'
     ];
+
+
 }

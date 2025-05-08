@@ -1,5 +1,7 @@
 <?php
 
+use App\Exceptions\ClientNotFoundException;
+use App\Helpers\ApiResponse;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -20,4 +22,8 @@ return Application::configure(basePath: dirname(__DIR__))
             return ApiResponse::error('',$exception->getMessage(), $exception->getCode());
         });
 		*/
+        $exceptions->render(function (ClientNotFoundException $exception)
+        {
+            return ApiResponse::error('',$exception->getMessage(), $exception->getCode());
+        });
     })->create();
