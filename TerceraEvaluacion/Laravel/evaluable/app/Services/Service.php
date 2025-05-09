@@ -55,20 +55,32 @@ class Service
          * Creo un obj con los parámetros que recibo del array $params.
          */
         $order = new Order();
-
+        $id = $params['client_id'];
         /**
          * Asigno valores al obj.
          * ¿Funcionaría con fill? Ya que el status debe de ser created por defecto.
          */
+
+        $order1 = Order::find($id);
+        if (!$order1) {
+            throw new ClientNotFoundException("The client with id {$id} no existe", Response::HTTP_NOT_FOUND);
+        }
+
+        /**
+         * Si existe monto el obj y llamo al repository.
+         */
         $order->sale_date = $params['sale_date'];
         $order->amount = $params['amount'];
-        $order->client_id = $params['client_id'];
+        $order->client_id = $id;
         $order->articles_id = $params['articles_id'];
         $order->status = OrderStatus::CREATED;
+
+
+
 
         /**
          * Paso el obj que he creado al repository.
          */
-        return $this->orderRepository->create($order);
+        return $this->orderRepository->createOrder($order);
     }
 }

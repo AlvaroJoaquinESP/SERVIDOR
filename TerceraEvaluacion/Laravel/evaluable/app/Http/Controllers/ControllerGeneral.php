@@ -39,14 +39,13 @@ class ControllerGeneral extends Controller
     public function create(CreateOrderRequest $create_order_request)
     {
         /**
-         * Creo un array con todos los objetos que cumplan las condiciones de la request.
+         * Creo un array asociativo con lo que recibe en el campo de la llamada.
          */
         $params = $create_order_request->all();
 
         /**
-         * Paso el array de objetos al service.
          * ¿Cómo puede ser que le pase un array de objetos?->¿Es acaso un array de un solo objeto?
-         * 
+         * LE PASO UN ARRAY ASOCIATIVO CON LO QUE RECIBE EN EL CAMPO DE LA LLAMADA.
          */
         $order = $this->orderService->create($params);
 

@@ -5,14 +5,11 @@ meta {
 }
 
 get {
-  url: http://127.0.0.1:8000/api/login
+  url: http://127.0.0.1:8000/api/user
   body: json
-  auth: inherit
+  auth: bearer
 }
 
-body:json {
-  {
-    "email":"aj@gmail.com",
-    "password":"123456"
-  }
+auth:bearer {
+  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzQ2Nzg3Mzg1LCJleHAiOjE3NDY3OTA5ODUsIm5iZiI6MTc0Njc4NzM4NSwianRpIjoiMkpoRFNwQnljcGVDcHkwZCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.MtOzlciWRAuuSdboXSSxvYw5PdEslF67P3RHRdog0I4
 }

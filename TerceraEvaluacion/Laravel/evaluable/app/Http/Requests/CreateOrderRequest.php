@@ -30,9 +30,9 @@ class CreateOrderRequest extends FormRequest
         return [
             'sale_date' => 'required|date', //|before_or_equal:today.
             'amount' => 'required|numeric|min:0.01',
-            'client_id' => 'required|exists:clients,id',
+            'client_id' => 'required|numeric|min:1',
             'articles_id' => 'required|string|max:255'
-        ];
+        ];  
     }
 
 
