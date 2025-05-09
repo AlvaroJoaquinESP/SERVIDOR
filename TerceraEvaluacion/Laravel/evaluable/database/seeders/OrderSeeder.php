@@ -16,6 +16,7 @@ class OrderSeeder extends Seeder
         $order = new Order();
         $order->status = 'PAID';
         $order->sale_date = '2025-05-08';
+        $order->articles_id = '311';
         $order->amount = 0.4;
         $order->client_id = 1;
         $order->save();
@@ -23,6 +24,7 @@ class OrderSeeder extends Seeder
         $order = new Order();
         $order->status = 'PROCESSED';
         $order->sale_date = '2025-06-08';
+        $order->articles_id = '68';
         $order->amount = 0.8;
         $order->client_id = 1;
         $order->save();

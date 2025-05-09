@@ -14,8 +14,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            // Valor por defecto.
             $table->enum('status', OrderStatus::values());
             $table->date('sale_date');
+            $table->string('articles_id');
             $table->float('amount');
 
             // nombre de la tabla en singular + _id.

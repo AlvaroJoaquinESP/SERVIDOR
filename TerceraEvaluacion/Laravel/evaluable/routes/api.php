@@ -19,3 +19,6 @@ Route::get('/getAllByID/{id}', [ControllerGeneral::class, 'getAllByID']);
 
 
 Route::get('/getByID/{id}', [ControllerGeneral::class, 'getByID']);
+
+
+Route::post('/createOrder', [ControllerGeneral::class, 'create']);

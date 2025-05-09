@@ -12,9 +12,12 @@ class OrderRepository {
     }
 
 
-    public function createOrder($client_id, $sale_data, $articles_id, $amount)
+    public function createOrder(Order $order)
     {
+        $order->save();
 
+        // SI HAGO RETURN DIRECTO DEVUELVE T O F EN LA SALIDA. ASÍ, MUESTRA EL OBJ ENTERO.
+        return $order;
     }
 
 
