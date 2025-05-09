@@ -19,7 +19,7 @@ Route::get('/hello', function () {
 
 
 Route::post('register', [JWTAuthController::class, 'register']);
-Route::post('login', [JWTAuthController::class, 'login']);
+Route::get('login', [JWTAuthController::class, 'login']);
 
 
 

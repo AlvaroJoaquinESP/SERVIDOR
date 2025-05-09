@@ -1,0 +1,18 @@
+meta {
+  name: GetUserInformation
+  type: http
+  seq: 11
+}
+
+get {
+  url: http://127.0.0.1:8000/api/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email":"aj@gmail.com",
+    "password":"123456"
+  }
+}
