@@ -4,11 +4,14 @@ namespace App\Services;
 
 use App\Enums\OrderStatus;
 use App\Exceptions\ClientNotFoundException;
+use App\Exceptions\OrderNotFoundException;
+use App\Exceptions\PreconditionOrderException;
 use App\Models\Client;
 use App\Models\Order;
 use App\Repositories\ClientRepository;
 use App\Repositories\OrderRepository;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 
 class Service
 {
@@ -82,5 +85,24 @@ class Service
          * Paso el obj que he creado al repository.
          */
         return $this->orderRepository->createOrder($order);
+    }
+
+
+
+    public function cancel($id)
+    {
+
+        $order = Order::find($id);
+
+        if (!$order) {
+            throw new OrderNotFoundException("This order does not exists", Response::HTTP_NOT_FOUND);
+        }
+
+        if ($order->status == 'PROCESSSED') {
+            throw new PreconditionOrderException("The status already is cancelled or the order is being processed", Response::HTTP_PRECONDITION_FAILED);
+        }
+
+            return $this->orderRepository->cancel($order);
+        
     }
 }

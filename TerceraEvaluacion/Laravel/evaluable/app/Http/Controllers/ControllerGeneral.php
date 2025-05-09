@@ -6,6 +6,7 @@ use App\Helpers\ApiResponse;
 use App\Http\Requests\CreateOrderRequest;
 use App\Models\Order;
 use App\Services\Service;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class ControllerGeneral extends Controller
@@ -50,5 +51,18 @@ class ControllerGeneral extends Controller
         $order = $this->orderService->create($params);
 
         return ApiResponse::success($order,'Order created successfully', Response::HTTP_CREATED);
+    }
+
+
+    public function cancel(Request $request)
+    {
+        /**
+         * Traigo el id que le paso por llamada.
+         */
+        $id = $request->all();
+
+        $order = $this->orderService->cancel($id);
+
+        return ApiResponse::success($order,'Updated succesfully');
     }
 }
