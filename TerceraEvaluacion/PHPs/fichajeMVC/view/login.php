@@ -13,6 +13,13 @@
     <div class="container form-control m-3 bg-ligth">
         <h1>Formulario</h1>
         <hr>
+        <?php
+        if (isset($message) && !empty($message)) {
+            echo "<p class='alert alert-primary' role='alert'>$message</p>";
+            // Limpio el mensaje.
+            $message = '';
+        }
+        ?>
         <form action="<?= BASE_URL ?> /user/validate" method="post">
             <label for="name" class="form-label">Nombre: </label>
             <input type="text" name="name" id="name" maxlength="255" class="form-control" required>

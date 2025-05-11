@@ -12,7 +12,11 @@ class UserController {
 
     public function showLogin()
     {
-        require_once("view/login.php");
+        if (!isset($_SESSION['logged'])) {
+            require_once("view/login.php");
+         }else {
+            (new AirportController())->showList();
+         }
     }
 
 
@@ -23,6 +27,7 @@ class UserController {
         $user = $this->userRepository->validate($name, md5($pass));
 
         if (isset($user)) {
+            $_SESSION['logged'] = true;
             $_SESSION['name'] = $user->getName();
             header("Location: " .BASE_URL. "/sign/welcome");
         } else {
