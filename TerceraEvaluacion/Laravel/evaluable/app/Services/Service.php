@@ -8,10 +8,8 @@ use App\Exceptions\OrderNotFoundException;
 use App\Exceptions\PreconditionOrderException;
 use App\Models\Client;
 use App\Models\Order;
-use App\Repositories\ClientRepository;
 use App\Repositories\OrderRepository;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Log;
 
 class Service
 {
@@ -20,10 +18,9 @@ class Service
     protected $clientRepository;
 
 
-    public function __construct(OrderRepository $order_repository, ClientRepository $client_repository)
+    public function __construct(OrderRepository $order_repository)
     {
         $this->orderRepository = $order_repository;
-        $this->clientRepository = $client_repository;
     }
 
 
