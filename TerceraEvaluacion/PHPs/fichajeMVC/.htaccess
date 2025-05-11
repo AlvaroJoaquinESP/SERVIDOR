@@ -4,6 +4,11 @@
 
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
+
+    RewriteRule ^user/login$ index.php?controller=UserController&action=showLogin [L]
+	RewriteRule ^user/validate$ index.php?controller=UserController&action=validate [L]
+	RewriteRule ^user/logout$ index.php?controller=UserController&action=logout [L]
+	RewriteRule ^sign/welcome$ index.php?controller=SignController&action=welcome [L]
 	
     #RewriteRule ^libro/listar_libros$ index.php?action=listLibro [L]
     #RewriteRule ^user/logout$ index.php?controller=UserController&action=logout [L]
