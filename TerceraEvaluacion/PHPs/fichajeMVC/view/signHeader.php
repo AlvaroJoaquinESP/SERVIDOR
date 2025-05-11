@@ -13,16 +13,11 @@
         <header class="card-header">
             <h1 class="text text-center">🛫IBERIA🛫</h1>
             <nav class="nav flex-row justify-content-center">
-                <a class="nav-link" href="<?= BASE_URL ?>/airport/list">Listado</a>
-                <?php
-                if ($_SESSION['name'] == "admin") {
-                    echo "<a class='nav-link' href=" . BASE_URL . "/airport/add" . ">Insertar</a>";
-                    echo "<a class='nav-link' href=" . BASE_URL . "/airport/import" . ">Importar</a>";
-                }
-                ?>
-
-                <a class="nav-link" href="<?= BASE_URL ?>/airport/search">Buscar por localización</a>
-                
+                <form action="<?= BASE_URL ?> /user/validate" method="post">
+                    <?php
+                    echo "<button class='btn btn-primary mt-4'>Fichar</button>"
+                    ?>
+                </form>
             </nav>
         </header>
         <hr>

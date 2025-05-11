@@ -15,7 +15,7 @@ class UserController {
         if (!isset($_SESSION['logged'])) {
             require_once("view/login.php");
          }else {
-            (new AirportController())->showList();
+            (new SignController())->welcome();
          }
     }
 
@@ -29,6 +29,7 @@ class UserController {
         if (isset($user)) {
             $_SESSION['logged'] = true;
             $_SESSION['name'] = $user->getName();
+            $_SESSION['user_id'] = $user->getId();
             header("Location: " .BASE_URL. "/sign/welcome");
         } else {
             $message = "Credenciales incorrectas";
