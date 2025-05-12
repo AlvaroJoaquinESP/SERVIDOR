@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Order;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,6 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
      //$this->call([ExampleSeeder:class]) Para cargar seeders nuevos
-
+        $this->call(([PizzaSeeder::class, DeliverySeeder::class, OrderSeeder::class]));
     }
 }
