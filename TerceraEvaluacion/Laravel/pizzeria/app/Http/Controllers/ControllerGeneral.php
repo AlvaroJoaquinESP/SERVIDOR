@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ApiResponse;
 use App\Http\Requests\CreateOrderRequest;
-use Service;
+use App\Services\Service;
+use Illuminate\Http\Request;
 
 class ControllerGeneral extends Controller
 {
@@ -16,6 +17,8 @@ class ControllerGeneral extends Controller
         $this->service = $serviceP;
     }
 
+
+
     public function create(CreateOrderRequest $create_order_request)
     {
         // Recojo los parámetros.
@@ -24,5 +27,22 @@ class ControllerGeneral extends Controller
         // Los paso al servicio para que haga la magia.
         $order = $this->service->create($params);
         return ApiResponse::success($order, "Created");
+    }
+
+
+    public function search($id)
+    {
+        $order = $this->service->search($id);
+        return ApiResponse::success($order, "Found");
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $params = $request->all();
+
+        $order = $this->service->update($params, $id);
+
+        return ApiResponse::success($order, "Updated successfully");
     }
 }
