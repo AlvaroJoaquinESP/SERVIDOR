@@ -6,6 +6,14 @@ meta {
 
 post {
   url: http://127.0.0.1:8000/api/createOrder
-  body: none
+  body: json
   auth: inherit
+}
+
+body:json {
+  {
+    "delivery_id" : 1,
+    "order_date" : "2025-05-13",
+    "pizza_ids" : "1,2,3"
+  }
 }
