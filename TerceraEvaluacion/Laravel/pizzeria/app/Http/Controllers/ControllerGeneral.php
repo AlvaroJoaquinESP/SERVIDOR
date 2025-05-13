@@ -37,12 +37,18 @@ class ControllerGeneral extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $params = $request->all();
-
-        $order = $this->service->update($params, $id);
+ 
+        $order = $this->service->update($params);
 
         return ApiResponse::success($order, "Updated successfully");
+    }
+
+
+    public function calculateTotal()
+    {
+        
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Exceptions\OrderNotFoundException;
+use App\Exceptions\PreconditionOrderFailed;
 use App\Helpers\ApiResponse;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -18,7 +19,10 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
         
-		 $exceptions->render(function (OrderNotFoundException $exception){
+		$exceptions->render(function (OrderNotFoundException $exception){
+            return ApiResponse::error('',$exception->getMessage(), $exception->getCode());
+        });
+        $exceptions->render(function (PreconditionOrderFailed $exception){
             return ApiResponse::error('',$exception->getMessage(), $exception->getCode());
         });
 		

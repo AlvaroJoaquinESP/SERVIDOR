@@ -12,6 +12,12 @@ class Delivery extends Model
     ];
 
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
+
     // DONDE 'EXPORTO' LA FK, TENGO ESTA FUNCIÓN.
     public function order()
     {

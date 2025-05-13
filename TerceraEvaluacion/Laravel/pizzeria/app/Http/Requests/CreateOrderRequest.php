@@ -35,7 +35,8 @@ class CreateOrderRequest extends FormRequest
             /**
              * 'status' => ['required','string', new Enum(OrderStatus::class)],
              * NO HACE FALTA, YA QUE POR DEFECTO DEBE DE SER CREATED, lo establezco en el service.
-             * */'order_date' => 'required|date',
+             * */
+            'order_date' => 'required|date',
             'pizza_ids' => 'required|string|max:255',
             'delivery_id' => 'required|numeric|min:1'
         ];

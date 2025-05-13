@@ -15,4 +15,6 @@ Route::get('/hello', function () {
 
 Route::post('/createOrder', [ControllerGeneral::class, 'create']);
 
+Route::patch('/update', [ControllerGeneral::class, 'update']);
+
 Route::get('/search/{id}' , [ControllerGeneral::class, 'search']);
