@@ -15,6 +15,8 @@ Route::get('/hello', function () {
 
 Route::post('/createOrder', [ControllerGeneral::class, 'create']);
 
+Route::get('/calculateTotal/{id}', [ControllerGeneral::class, 'calculateTotal']);
+
 Route::patch('/update', [ControllerGeneral::class, 'update']);
 
 Route::get('/search/{id}' , [ControllerGeneral::class, 'search']);

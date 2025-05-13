@@ -3,19 +3,27 @@
 namespace App\Services;
 
 use App\Enums\OrderStatusEnum;
+use App\Exceptions\DeliveryNotFoundException;
 use App\Exceptions\OrderNotFoundException;
 use App\Exceptions\PreconditionOrderFailed;
+use App\Models\Delivery;
 use App\Models\Order;
+use App\Repositories\DeliveryRepository;
 use App\Repositories\OrderRepository;
+use App\Repositories\PizzaRepository;
 use Illuminate\Http\Response;
 
 class Service 
 {
     protected $orderRepository;
+    protected $deliveryRepository;
+    protected $pizzaRepository;
 
-    public function __construct(OrderRepository $order_repository)
+    public function __construct(OrderRepository $order_repository, DeliveryRepository $delivery_repository, PizzaRepository $pizza_repository)
     {
         $this->orderRepository = $order_repository;
+        $this->deliveryRepository = $delivery_repository;
+        $this->pizzaRepository = $pizza_repository;
     }
 
 
@@ -41,13 +49,32 @@ class Service
         if (!$order) {
             throw new OrderNotFoundException("Order not found", Response::HTTP_NOT_FOUND);
         }
-        return $this->orderRepository->search($id);
+
+        $delivery = Delivery::find($id);
+
+        if (!$delivery) {
+            throw new DeliveryNotFoundException("Delivery not found", Response::HTTP_NOT_FOUND);
+        }
+
+        return $this->orderRepository->searchOrder($id);
     }
 
 
-    public function calculateTotal($pizza_ids)
+    public function calculateTotal($id)
     {
+        $order = $this->orderRepository->findOrder($id);
+
+        $pizza_ids = $order->pizza_ids;
+
         $array = explode(",", $pizza_ids);
+
+        $total = 0;
+        foreach ($array as $value) {
+            $pizza = $this->pizzaRepository->findPizza($value);
+            $total += $pizza->price;
+        }
+
+        return $total;
 
     }
 
@@ -75,7 +102,11 @@ class Service
 
         return $this->orderRepository->saveOrder($order);
     }
+
+
     
+
+
 }
 
 

@@ -13,10 +13,16 @@ class OrderRepository
     }
 
 
-    public function search($id)
+    public function searchOrder($id)
     {
         // Método definido en la clase Order.
         return Order::with('delivery')->find($id);
+    }
+
+
+    public function findOrder($id)
+    {
+        return Order::find($id);
     }
 
 

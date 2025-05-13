@@ -47,8 +47,10 @@ class ControllerGeneral extends Controller
     }
 
 
-    public function calculateTotal()
+    public function calculateTotal($id)
     {
-        
+        $total = $this->service->calculateTotal($id);
+
+        return ApiResponse::success($total, "Successfully");
     }
 }
