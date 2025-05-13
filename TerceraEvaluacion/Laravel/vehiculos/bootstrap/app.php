@@ -1,5 +1,7 @@
 <?php
 
+use App\Exceptions\PreconditionSaleException;
+use App\Helpers\ApiResponse;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -15,9 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        /*
-		 $exceptions->render(function (BookNotFoundException $exception){
+        
+		 $exceptions->render(function (PreconditionSaleException $exception){
             return ApiResponse::error('',$exception->getMessage(), $exception->getCode());
         });
-		*/
+		
     })->create();
