@@ -6,7 +6,7 @@ use App\Models\Delivery;
 
 class DeliveryRepository
 {
-     public function searchDelivery($id)
+     public function findDelivery($id)
     {
         return Delivery::find($id);
     }    

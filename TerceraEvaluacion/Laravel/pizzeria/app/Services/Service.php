@@ -44,13 +44,13 @@ class Service
 
     public function search($id)
     {
-        $order = Order::find($id); 
+        $order = Order::findOrder($id); 
 
         if (!$order) {
             throw new OrderNotFoundException("Order not found", Response::HTTP_NOT_FOUND);
         }
 
-        $delivery = Delivery::find($id);
+        $delivery = Delivery::findDelivery($id);
 
         if (!$delivery) {
             throw new DeliveryNotFoundException("Delivery not found", Response::HTTP_NOT_FOUND);

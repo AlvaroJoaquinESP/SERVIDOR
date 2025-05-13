@@ -30,13 +30,6 @@ class ControllerGeneral extends Controller
     }
 
 
-    public function search($id)
-    {
-        $order = $this->service->search($id);
-        return ApiResponse::success($order, "Found");
-    }
-
-
     public function update(Request $request)
     {
         $params = $request->all();
@@ -45,6 +38,15 @@ class ControllerGeneral extends Controller
 
         return ApiResponse::success($order, "Updated successfully");
     }
+
+
+    public function search($id)
+    {
+        $order = $this->service->search($id);
+        return ApiResponse::success($order, "Found");
+    }
+
+
 
 
     public function calculateTotal($id)
