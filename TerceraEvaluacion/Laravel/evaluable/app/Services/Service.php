@@ -89,13 +89,13 @@ class Service
     public function cancel($id)
     {
 
-        $order = Order::find($id);
+        $order = Order::find($id)->first();
 
         if (!$order) {
             throw new OrderNotFoundException("This order does not exists", Response::HTTP_NOT_FOUND);
         }
 
-        if ($order->status == 'PROCESSSED') {
+        if ($order->status == OrderStatus::PROCESSED || $order->status == OrderStatus::CANCELLED) {
             throw new PreconditionOrderException("The status already is cancelled or the order is being processed", Response::HTTP_PRECONDITION_FAILED);
         }
 
