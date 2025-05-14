@@ -21,9 +21,9 @@ class SaleRepository
     }
 
 
-    public function getCarId($id)
+    public function getCarId($car_id)
     {
-        return Sale::where('car_id', $id)->first();
+        return Sale::find($car_id);
     }
 }
 
