@@ -1,5 +1,8 @@
 <?php
 
+use App\Exceptions\ClientNotFoundException;
+use App\Exceptions\PreconditionOrderFailed2;
+use App\Helpers\ApiResponse;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -15,9 +18,13 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        /*
-		 $exceptions->render(function (BookNotFoundException $exception){
-            return ApiResponse::error('',$exception->getMessage(), $exception->getCode());
+        
+		 $exceptions->render(function (ClientNotFoundException $exception){
+            return ApiResponse::error($exception->getCode(),$exception->getMessage(), $exception->getCode());
         });
-		*/
+
+        $exceptions->render(function (PreconditionOrderFailed2 $exception){
+            return ApiResponse::error($exception->getCode(),$exception->getMessage(), $exception->getCode());
+        });
+		
     })->create();

@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'status',
         'sale_date',
         'articles_id',
         'amount',
@@ -23,4 +22,9 @@ class Order extends Model
         'created_at',
         'updated_at'
     ];
+
+     public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
 }

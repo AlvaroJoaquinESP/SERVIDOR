@@ -10,6 +10,20 @@ class OrderRepository
     {
         return Order::where('client_id', $client_id)->get();
     }
+
+    public function saveOrder(Order $order)
+    {
+        $order->save();
+
+        return $order;
+    }
+
+
+    public function searchOrder($id)
+    {
+         return Order::with('client')->find($id);
+    }
+
 }
 
 
