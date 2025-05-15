@@ -97,7 +97,6 @@ class Service
         /**
          * No hago fill para conservar los campos que me pide el ejercicio.
          */
-        $order->id = $id;
         $order->status = $status;
 
         return $this->orderRepository->saveOrder($order);

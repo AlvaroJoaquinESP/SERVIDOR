@@ -25,6 +25,12 @@ class SaleRepository
     {
         return Sale::find($car_id);
     }
+
+
+    public function findSale($saleId)
+    {
+        return Sale::find($saleId);
+    }
 }
 
 

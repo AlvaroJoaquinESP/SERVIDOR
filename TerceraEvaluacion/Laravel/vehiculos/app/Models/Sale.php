@@ -12,7 +12,11 @@ class Sale extends Model
         'sale_date',
         'seller_id',
         'client_id',
-        'car_id'
+        'car_id',
+        
+        // Para actualizar.
+        'status',
+        'saleId'
     ];
 
     protected $casts = [

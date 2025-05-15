@@ -16,3 +16,5 @@ Route::get('/hello', function () {
 Route::get('/getAllSales', [ControllerGeneral::class, 'getAllSales']);
 
 Route::post('/createSale', [ControllerGeneral::class, 'createSale']);
+
+Route::patch('updateSale', [ControllerGeneral::class, 'updateSale']);

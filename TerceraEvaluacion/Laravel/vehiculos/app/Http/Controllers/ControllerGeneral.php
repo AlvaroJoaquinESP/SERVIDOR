@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\ApiResponse;
 use App\Http\Requests\CreateSaleRequest;
 use App\Services\Service;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class ControllerGeneral extends Controller
@@ -31,5 +32,15 @@ class ControllerGeneral extends Controller
         $sale = $this->service->createSale($params);
 
         return ApiResponse::success($sale, "Created", Response::HTTP_CREATED);
+    }
+
+
+    public function updateSale(Request $request)
+    {
+        $params = $request->all();
+
+        $sale = $this->service->updateSale($params);
+
+        return ApiResponse::success($sale, "Updated successfully");
     }
 }

@@ -4,9 +4,12 @@ namespace App\Services;
 
 use App\Enums\SaleStatus;
 use App\Exceptions\PreconditionSaleException;
+use App\Exceptions\SaleNotFoundException;
+use App\Models\Car;
 use App\Models\Sale;
 use App\Repositories\CarRepository;
 use App\Repositories\SaleRepository;
+
 use Illuminate\Http\Response;
 
 class Service
@@ -35,12 +38,38 @@ class Service
         
         $car = $this->saleRepository->getCarId($car_id);
 
-        if (!$car) {
+        if ($car) {
             throw new PreconditionSaleException("The id {$car_id} already exists", Response::HTTP_PRECONDITION_FAILED);
         }
 
-        $sale->fill($params);
+        // $sale->fill($params);
+        $sale->amount = $params['amount'];
+        $sale->sale_date = $params['sale_date'];
+        $sale->seller_id = $params['seller_id'];
+        $sale->client_id = $params['client_id'];
+        $sale->car_id = $params['car_id'];
         $sale->status = SaleStatus::CREATED;
+
+        return $this->saleRepository->saveSale($sale);
+    }
+
+
+    public function updateSale($params)
+    {
+        $status = $params['status'];
+        $saleId = $params['saleId'];
+
+        $sale = $this->saleRepository->findSale($saleId);
+
+        if (!$sale) {
+            throw new SaleNotFoundException("Does not exists a sale with id {$saleId}", Response::HTTP_NOT_FOUND);
+        }
+
+        if ($status != SaleStatus::CREATED) {
+            throw new PreconditionSaleException("Sale status should be CREATED", Response::HTTP_PRECONDITION_FAILED);
+        }
+
+        $sale->status = SaleStatus::CANCELLED;
 
         return $this->saleRepository->saveSale($sale);
 
