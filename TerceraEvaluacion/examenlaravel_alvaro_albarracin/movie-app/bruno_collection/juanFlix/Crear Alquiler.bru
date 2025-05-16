@@ -1,0 +1,20 @@
+meta {
+  name: Crear Alquiler
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://127.0.0.1:8000/api/rentals
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "rental_date" : "2025-05-06",
+    "return_date" : "2025-05-08",
+    "movie_id" : 1,
+    "customer_id" : 2
+  }
+}

@@ -1,0 +1,31 @@
+Extraer movie-app.zip y ejecutar los siguientes comandos en un terminal sobre el directorio: 
+
+- composer install 
+- php artisan migrate (Pulsa Y para que crear la base de datos)
+- php artisan serve
+
+Comprueba en el navegador esta url http://localhost:8000/api/hello
+
+Si se carga correctamente, desconectate de internet y pide el enunciado del examen.
+
+
+
+
+Extra Chuletas:
+
+//Lanzar excepción en la request
+    public function failedValidation(Validator $validator){
+        throw new HttpResponseException(ApiResponse::error($validator->errors()
+        , "Error Validation", 422));
+    }
+
+//Belongs hasMany en los modelos
+
+ function strap(){
+         return $this->belongsTo(Strap::class);
+ }
+
+    function feature(){
+        return $this->hasMany(Feature::class);
+    }	
+
