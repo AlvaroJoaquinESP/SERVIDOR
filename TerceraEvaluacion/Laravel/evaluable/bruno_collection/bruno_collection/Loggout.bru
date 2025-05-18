@@ -1,12 +1,12 @@
 meta {
-  name: getAllByID
+  name: Loggout
   type: http
-  seq: 2
+  seq: 9
 }
 
-get {
-  url: http://127.0.0.1:8000/api/getAllByID/1
-  body: none
+post {
+  url: http://127.0.0.1:8000/api/logout
+  body: json
   auth: bearer
 }
 
