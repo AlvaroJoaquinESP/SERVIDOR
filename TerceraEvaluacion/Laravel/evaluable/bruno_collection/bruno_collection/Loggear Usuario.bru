@@ -7,12 +7,16 @@ meta {
 post {
   url: http://evaluable-laravel.vercel.app/api/api/login
   body: json
-  auth: inherit
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXZhbHVhYmxlLWxhcmF2ZWwudmVyY2VsLmFwcC9hcGkvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzQ3NjY4OTI0LCJleHAiOjE3NDc2NzI1MjQsIm5iZiI6MTc0NzY2ODkyNCwianRpIjoiSk5KZXA4NnRpYzhmZENPaSIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RGGqyDvQEYaG-upcJEoQAmMxLMEwD4MvuRxPK3Bdc2M
 }
 
 body:json {
   {
-    "email" : "cipri@alu.murciaeduca.es",
-    "password" : "Cipriano"
+    "email" : "juan@alu.murciaeduca.es",
+    "password" : "Juan437"
   }
 }

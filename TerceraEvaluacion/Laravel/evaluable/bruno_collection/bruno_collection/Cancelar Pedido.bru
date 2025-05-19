@@ -7,11 +7,15 @@ meta {
 post {
   url: https://evaluable-laravel.vercel.app/api/api/cancelOrder
   body: json
-  auth: inherit
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZXZhbHVhYmxlLWxhcmF2ZWwudmVyY2VsLmFwcC9hcGkvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzQ3NjY3NTk2LCJleHAiOjE3NDc2NzExOTYsIm5iZiI6MTc0NzY2NzU5NiwianRpIjoicTFGeEJDYVlET2ZKTnI0eCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.8wnSD_mc45bIvY8gBAUdjKxPARC2GPDrK2kHp3Fa40M
 }
 
 body:json {
   {
-    "id":1
+    "id":3
   }
 }

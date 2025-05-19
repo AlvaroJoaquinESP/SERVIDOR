@@ -99,7 +99,7 @@ class Service
             throw new PreconditionOrderException("The status already is cancelled or the order is being processed", Response::HTTP_PRECONDITION_FAILED);
         }
 
-            return $this->orderRepository->cancel($order);
-        
+        $order->status = OrderStatus::CANCELLED;
+        return $this->orderRepository->cancel($order);
     }
 }
