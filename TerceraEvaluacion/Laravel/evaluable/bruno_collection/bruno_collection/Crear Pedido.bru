@@ -1,13 +1,13 @@
 meta {
-  name: createOrder copy
+  name: Crear Pedido
   type: http
-  seq: 6
+  seq: 1
 }
 
 post {
   url: https://evaluable-laravel.vercel.app/api/api/createOrder
   body: json
-  auth: inherit
+  auth: bearer
 }
 
 body:json {
